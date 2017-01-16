@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 public class Keywords {
-	private ArrayList<String> keywords;
+	private List<String> keywords;
 	
-	public ArrayList<String> getKeywords(){
+	public List<String> getKeywords(){
 		keywords = new ArrayList<String>();
 		Properties property = new Properties();
 		InputStream input = null;
@@ -19,9 +21,10 @@ public class Keywords {
 			property.load(input);
 			String allKeywords =property.getProperty("keywords");
 			String[] keywordArray = allKeywords.split(",");
-				for(String oneKeyword : keywordArray){
+				/*for(String oneKeyword : keywordArray){
 					keywords.add(oneKeyword);
-				}
+				}*/
+				keywords = Arrays.asList(keywordArray);
 				return keywords;
 		}
 		catch(IOException ex){
@@ -40,7 +43,7 @@ public class Keywords {
 	}
 	public static void main(String args[]){
 		Keywords key = new Keywords();
-		ArrayList<String> keywords = key.getKeywords();
+		List<String> keywords = key.getKeywords();
 		for(String abc : keywords){
 			System.out.println(abc);
 		}
