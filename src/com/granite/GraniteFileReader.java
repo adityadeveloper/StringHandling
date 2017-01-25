@@ -5,10 +5,11 @@ import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
 
-public class GraniteReader {
+public class GraniteFileReader {
 	private List<GraniteVO> GraniteList;
 
 	public List<GraniteVO> createGraniteList(String csvFileName){
@@ -77,10 +78,19 @@ public class GraniteReader {
 	}*/
 	
 	public static void main(String args[]){
-		GraniteReader gr = new GraniteReader();
+		GraniteFileReader gr = new GraniteFileReader();
+		GraniteDB db = new GraniteDB();
 		List<GraniteVO> test = gr.createGraniteList("wifi_ap_141020161848.csv");
-		System.out.println("\n\n"+test.get(0));
-		System.out.println("\n\n"+test.get(1));
+		
+		try{
+			db.insertIntoGraniteTable(test);
+		}
+		catch(SQLException sq){
+			sq.getMessage();
+			sq.printStackTrace();
+		}
+		
+		//System.out.println("\n\n"+test.get(0));
+		//System.out.println("\n\n"+test.get(1));
 	}
-	
 }
