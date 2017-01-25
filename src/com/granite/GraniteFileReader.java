@@ -52,30 +52,7 @@ public class GraniteFileReader {
         	}
         }
     }
-			
-/*		
-		CSVReader cv = new CSVReader();
-		List<String> allGraniteRows = cv.getCsvLine();
-		for(String oneGraniteRow : allGraniteRows){
-			List<String> CsvLineValues = cv.getCsvLineValues(oneGraniteRow);
-		
-			GraniteVO graniteVO = new GraniteVO();
-			graniteVO.setEquipment_status(CsvLineValues.get(0));
-			graniteVO.setDevice_code(CsvLineValues.get(1));
-			graniteVO.setFacility_id(CsvLineValues.get(2));
-			graniteVO.setModified_date_time(CsvLineValues.get(3));
-			graniteVO.setFull_address(CsvLineValues.get(4));
-			graniteVO.setCountry(CsvLineValues.get(5));
-			graniteVO.setPincode(CsvLineValues.get(6));
-			graniteVO.setEquip_ref_name(CsvLineValues.get(7));
-			graniteVO.setFloor(CsvLineValues.get(8));
-			graniteVO.setBssid(CsvLineValues.get(9));
-			
-			GraniteList.add(graniteVO);
-		}
-		
-		return GraniteList;
-	}*/
+
 	
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
@@ -90,7 +67,5 @@ public class GraniteFileReader {
 			sq.printStackTrace();
 		}
 		
-		//System.out.println("\n\n"+test.get(0));
-		//System.out.println("\n\n"+test.get(1));
 	}
 }
