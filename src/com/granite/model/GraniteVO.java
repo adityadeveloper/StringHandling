@@ -1,4 +1,4 @@
-package com.granite;
+package com.granite.model;
 
 public class GraniteVO {
 	private String equipment_status;

@@ -1,6 +1,6 @@
-package com.granite;
+package com.granite.filereader;
 
-import com.CSVutility.*;
+import com.granite.model.GraniteVO;
 import com.opencsv.CSVReader;
 
 import java.io.FileReader;
@@ -14,17 +14,19 @@ public class GraniteFileReader {
 
 	public List<GraniteVO> createGraniteList(String csvFileName){
 		GraniteList = new ArrayList<GraniteVO>();
-		
-        String csvFile = csvFileName;
 
         CSVReader reader = null;
         try {
-           	System.out.println("CSV file reading started : "+ new Timestamp(System.currentTimeMillis()));
-            reader = new CSVReader(new FileReader(csvFile));
-            System.out.println("CSV file reading completed : "+ new Timestamp(System.currentTimeMillis()));
+			long startTimeStamp = System.currentTimeMillis();
+			System.out.println("CSV file reading started at "+ new Timestamp(startTimeStamp));
+            reader = new CSVReader(new FileReader(csvFileName));
+            long endTimeStamp = System.currentTimeMillis();
+			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms");
             String[] line;
+          
             while ((line = reader.readNext()) != null) {
             	GraniteVO graniteVO = new GraniteVO();
+            	
     			graniteVO.setEquipment_status(line[0]);
     			graniteVO.setDevice_code(line[1]);
     			graniteVO.setFacility_id(line[2]);
@@ -38,22 +40,23 @@ public class GraniteFileReader {
     			
     			GraniteList.add(graniteVO);
             }
+            GraniteList.remove(0);
             return GraniteList;
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
             return GraniteList;
         }
         finally{
-        	try{
-        		reader.close();
-        	}
-        	catch(IOException e){
-        		e.printStackTrace();
-        	}
+        		try{
+	        		reader.close();
+	        	}
+	        	catch(IOException e){
+	        		e.printStackTrace();
+	        	}
         }
     }
 
-	
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
 		GraniteDB db = new GraniteDB();
@@ -62,10 +65,10 @@ public class GraniteFileReader {
 		try{
 			db.insertIntoGraniteTable(test);
 		}
+		
 		catch(SQLException sq){
 			sq.getMessage();
 			sq.printStackTrace();
 		}
-		
 	}
 }
