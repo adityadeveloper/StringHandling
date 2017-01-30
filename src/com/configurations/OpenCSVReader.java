@@ -1,4 +1,4 @@
-package com.CSVutility;
+package com.configurations;
 
 import java.io.FileReader;
 import java.io.IOException;

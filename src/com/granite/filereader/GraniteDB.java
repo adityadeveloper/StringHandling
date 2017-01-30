@@ -13,7 +13,7 @@ public class GraniteDB {
 	private static final String DB_DRIVER = "org.postgresql.Driver";
 	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/granite";
 	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "password";
+	private static final String DB_PASSWORD = "upen";
 
 
 	public void insertIntoGraniteTable(List<GraniteVO> graniteVO) throws SQLException {
@@ -30,7 +30,7 @@ public class GraniteDB {
 			dbConnection = getDBConnection();
 			stmt = dbConnection.createStatement();
 
-			stmt.executeUpdate("Delete from granite");
+			stmt.executeUpdate("TRUNCATE granite");
 	
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 			

@@ -14,7 +14,7 @@ public class GraniteDbReader{
 	private static final String DB_DRIVER = "org.postgresql.Driver";
 	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/granite";
 	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "password";
+	private static final String DB_PASSWORD = "upen";
 	
 	private List<GraniteVO> GraniteVOFromDB;
 
@@ -33,7 +33,7 @@ public class GraniteDbReader{
 			ResultSet rs = stmt.executeQuery(graniteSelectQuery);
 			
 			while (rs.next()){
-				GraniteVO oneGraniteDBRow = new  GraniteVO();
+				GraniteVO oneGraniteDBRow = new GraniteVO();
 				
 				oneGraniteDBRow.setBssid(rs.getString("bssid"));
 				oneGraniteDBRow.setCountry(rs.getString("country"));
@@ -82,7 +82,7 @@ public class GraniteDbReader{
 		}
 
 		try {
-			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER,DB_PASSWORD);                
+			dbConnection = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);                
 			return dbConnection;
 		} 
 		

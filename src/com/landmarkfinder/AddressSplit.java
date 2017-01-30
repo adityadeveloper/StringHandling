@@ -1,6 +1,11 @@
 package com.landmarkfinder;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
-import com.CSVutility.CSVReader;
+
+import com.opencsv.CSVReader;
+
 
 public class AddressSplit {
 	private Keywords key;
@@ -58,18 +63,28 @@ public class AddressSplit {
 	
 	
 	public static void main(String args[]){
-		AddressSplit address = new AddressSplit();
-		//String search = "B-002, Sukur Garden, opp. Nandibaba temple, Thane (W)";
-		//address.getLandmark(search);
+		CSVReader reader;
+		String line[];
 		
-		List <String> csvList = new CSVReader().getCsvLine("abc.csv");
-		//System.out.println(csvList.get(1));
-		//System.out.println(address.getLandmark(csvList.get(1)));
-		for(String csvAdd :csvList){
-			address.getLandmark(csvAdd);
+		try{
+			AddressSplit address = new AddressSplit();
+			reader = new CSVReader(new FileReader("abc.csv"));
+			while((line = reader.readNext()) != null){
+					address.getLandmark(line[0]);
+			}	
+			System.out.println("Total Number of landmarks found : "+address.getLandmarkCount());	
 		}
-		System.out.println("\nTotal number of addresses provided : "+csvList.size());
-		System.out.println("Total Number of landmarks found : "+address.getLandmarkCount());	
 		
+		catch(FileNotFoundException fnx){
+			fnx.printStackTrace();
+		}
+		catch(IOException iox){
+			iox.printStackTrace();
+		}
+		
+		finally{
+		
+		}
+		//System.out.println("\nTotal number of addresses provided : "+csvList.size());
 	}
 }
