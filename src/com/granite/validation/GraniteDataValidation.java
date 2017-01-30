@@ -12,7 +12,7 @@ public class GraniteDataValidation {
 		validGraniteList = new ArrayList<>();
 		
 		long startTime = System.currentTimeMillis();
-		System.out.println("\nData validation process started at "+new Timestamp(startTime) + "\nTotal Granite records to be validated = "+graniteDBList.size()+"\n");
+		System.out.println("\nData validation process started at "+new Timestamp(startTime) + "\nTotal Granite records to be validated = "+graniteDBList.size());
 		
 		for(GraniteVO oneGraniteVO : graniteDBList){
 			try{
@@ -33,24 +33,28 @@ public class GraniteDataValidation {
 			}
 		}
 		long endTime = System.currentTimeMillis();
-		System.out.println("\nData validation process completed at "+new Timestamp(endTime) + "\nTotal valid Granite records = "+validGraniteList.size()+"\n");
+		System.out.println("Data validation process completed at "+new Timestamp(endTime) + "\nTotal time taken : " + (endTime-startTime) + " ms" + "\nTotal valid Granite records = "+validGraniteList.size()+"\n");
 		return validGraniteList;
 		
 	}
 	
 	public static void main(String args[]){
-		GraniteDbReader reader = new GraniteDbReader();
+		GraniteDBReader reader = new GraniteDBReader();
 		GraniteDataValidation validator = new GraniteDataValidation();
+		GraniteFinalDBWriter dbf = new GraniteFinalDBWriter();
 		
 		try{
 			List<GraniteVO> dbData =  reader.readFromGraniteTable();
 			List<GraniteVO> validatedData = validator.graniteValidator(dbData);
-/*			for(GraniteVO oneGraniteVO : dbData){
-				System.out.println("\n\n" + oneGraniteVO);
-			}*/
-/*			for(GraniteVO oneGraniteVO : validatedData){
-				System.out.println("\n\n" + oneGraniteVO);
-			}*/
+			
+			try{
+				dbf.insertIntoFinalGraniteTable(validatedData);
+			}
+			
+			catch(SQLException sq){
+				sq.getMessage();
+				sq.printStackTrace();
+			}
 		}
 		catch (SQLException sq){
 			sq.printStackTrace();

@@ -21,7 +21,7 @@ public class GraniteFileReader {
 			System.out.println("CSV file reading started at "+ new Timestamp(startTimeStamp));
             reader = new CSVReader(new FileReader(csvFileName));
             long endTimeStamp = System.currentTimeMillis();
-			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms");
+			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
             String[] line;
           
             while ((line = reader.readNext()) != null) {
@@ -59,7 +59,7 @@ public class GraniteFileReader {
 
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
-		GraniteDB db = new GraniteDB();
+		GraniteDBWriter db = new GraniteDBWriter();
 		List<GraniteVO> test = gr.createGraniteList("wifi_ap_141020161848.csv");
 		
 		try{

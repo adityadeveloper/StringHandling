@@ -19,18 +19,17 @@ public class Keywords {
 		try{
 			input = new FileInputStream("config.properties");
 			property.load(input);
-			String allKeywords =property.getProperty("keywords");
+			String allKeywords = property.getProperty("keywords");
 			String[] keywordArray = allKeywords.split(",");
-				/*for(String oneKeyword : keywordArray){
-					keywords.add(oneKeyword);
-				}*/
-				keywords = Arrays.asList(keywordArray);
-				return keywords;
+			keywords = Arrays.asList(keywordArray);
+			return keywords;
 		}
+		
 		catch(IOException ex){
 			ex.printStackTrace();
 			return keywords;
 		}
+		
 		finally{
 			if (input != null) {
 				try {
@@ -41,12 +40,12 @@ public class Keywords {
 			}
 		}
 	}
+	
 	public static void main(String args[]){
 		Keywords key = new Keywords();
 		List<String> keywords = key.getKeywords();
 		for(String abc : keywords){
 			System.out.println(abc);
-		}
-		
+		}	
 	}
 }

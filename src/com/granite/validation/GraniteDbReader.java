@@ -8,15 +8,24 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
 
+import com.configurations.ConfigReader;
 import com.granite.model.GraniteVO;
 
-public class GraniteDbReader{
-	private static final String DB_DRIVER = "org.postgresql.Driver";
-	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/granite";
-	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "upen";
-	
+public class GraniteDBReader{
+	private static final String DB_DRIVER;
+	private static final String DB_CONNECTION;
+	private static final String DB_USER;
+	private static final String DB_PASSWORD;
 	private List<GraniteVO> GraniteVOFromDB;
+	
+	static{
+		ConfigReader conf = new ConfigReader();
+		DB_DRIVER = conf.getDB_DRIVER();
+		DB_CONNECTION = conf.getDB_CONNECTION();
+		DB_USER = conf.getDB_USER();
+		DB_PASSWORD = conf.getDB_PASSWORD();
+	}
+	
 
 	public List<GraniteVO> readFromGraniteTable() throws SQLException {
 	
@@ -94,7 +103,7 @@ public class GraniteDbReader{
 	}
 	
 	public static void main (String args[]){
-		GraniteDbReader reader = new GraniteDbReader();
+		GraniteDBReader reader = new GraniteDBReader();
 		
 		try{
 			List<GraniteVO> dbData =  reader.readFromGraniteTable();

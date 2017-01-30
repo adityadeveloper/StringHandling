@@ -1,4 +1,4 @@
-package com.granite.filereader;
+package com.granite.validation;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -7,38 +7,42 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
+import com.configurations.ConfigReader;
 import com.granite.model.GraniteVO;
 
-public class GraniteDB {
-	private static final String DB_DRIVER = "org.postgresql.Driver";
-	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/granite";
-	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "upen";
+public class GraniteFinalDBWriter {
+	private static final String DB_DRIVER;
+	private static final String DB_CONNECTION;
+	private static final String DB_USER;
+	private static final String DB_PASSWORD;
+	
+	static{
+		ConfigReader conf = new ConfigReader();
+		DB_DRIVER = conf.getDB_DRIVER();
+		DB_CONNECTION = conf.getDB_CONNECTION();
+		DB_USER = conf.getDB_USER();
+		DB_PASSWORD = conf.getDB_PASSWORD();
+	}
 
 
-	public void insertIntoGraniteTable(List<GraniteVO> graniteVO) throws SQLException {
+	public void insertIntoFinalGraniteTable(List<GraniteVO> graniteVO) throws SQLException {
 
 		Connection dbConnection = null;
 		Statement stmt = null;
 		PreparedStatement preparedStatement = null;
-		String insertTableSQL = "INSERT INTO granite"
-				+ "(equipment_status,device_code,facility_id,modified_date_time,full_address,country,pincode,equip_ref_name,floor,bssid,timestamp) "
+		String insertTableSQL = "INSERT INTO granitefinal"
+				+ "(equipment_status,device_code,facility_id,modified_date_time,full_address,country,pincode,equip_ref_name,floor,bssid,timestamp,is_active) "
 				+ "VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
 			dbConnection = getDBConnection();
-			stmt = dbConnection.createStatement();
-
-			stmt.executeUpdate("TRUNCATE granite");
-	
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
-			
+		
 			long startTimeStamp = System.currentTimeMillis();
-			System.out.println("Data insertion started at "+ new Timestamp(startTimeStamp));
+			System.out.println("Final Data insertion started at "+ new Timestamp(startTimeStamp));
 			
 			for (GraniteVO oneGraniteVO: graniteVO){
-			
 				preparedStatement.setString(1,oneGraniteVO.getEquipment_status());
 				preparedStatement.setString(2,oneGraniteVO.getDevice_code());
 				preparedStatement.setString(3,oneGraniteVO.getFacility_id());
@@ -50,13 +54,15 @@ public class GraniteDB {
 				preparedStatement.setString(9,oneGraniteVO.getFloor());
 				preparedStatement.setString(10,oneGraniteVO.getBssid());
 				preparedStatement.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
-				// execute insert SQL stetement
+				preparedStatement.setBoolean(12,false);
+				
 				preparedStatement.executeUpdate();
-	
-				//System.out.println("Record is inserted into granite table for Equip_ref_name : "+oneGraniteVO.getEquip_ref_name());
 			}
+			
+			stmt = dbConnection.createStatement();
+			stmt.execute("UPDATE granitefinal SET is_active = true");
 			long endTimeStamp = System.currentTimeMillis();
-			System.out.println("Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms");
+			System.out.println("Fianl Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms");
 		} 
 		
 		catch (SQLException e) {
@@ -95,6 +101,5 @@ public class GraniteDB {
 			System.out.println(e.getMessage());
 		}
 		return dbConnection;
-	
 	}
 }
