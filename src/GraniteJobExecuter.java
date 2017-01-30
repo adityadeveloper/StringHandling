@@ -16,35 +16,16 @@ public class GraniteJobExecuter {
 		GraniteDBReader reader = new GraniteDBReader();
 		GraniteDataValidation validator = new GraniteDataValidation();
 		GraniteFinalDBWriter dbf = new GraniteFinalDBWriter();
-		
 		List<GraniteVO> graniteCSV = gr.createGraniteList("wifi_ap_141020161848.csv");
 		
 		try{
 			db.insertIntoGraniteTable(graniteCSV);
-		}
-		
-		catch(SQLException sq){
-			sq.getMessage();
-			sq.printStackTrace();
-		}
-		
-		try{
 			List<GraniteVO> dbData =  reader.readFromGraniteTable();
 			List<GraniteVO> validatedData = validator.graniteValidator(dbData);
-			
-			try{
-				dbf.insertIntoFinalGraniteTable(validatedData);
-			}
-			
-			catch(SQLException sq){
-				sq.getMessage();
-				sq.printStackTrace();
-			}
+			dbf.insertIntoFinalGraniteTable(validatedData);
 		}
-		
 		catch (SQLException sq){
 			sq.printStackTrace();
 		}
 	}
-
 }

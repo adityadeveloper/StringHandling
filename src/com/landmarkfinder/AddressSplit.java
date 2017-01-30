@@ -6,7 +6,6 @@ import java.util.*;
 
 import com.opencsv.CSVReader;
 
-
 public class AddressSplit {
 	private Keywords key;
 	private List<String> keywords;
@@ -80,10 +79,6 @@ public class AddressSplit {
 		}
 		catch(IOException iox){
 			iox.printStackTrace();
-		}
-		
-		finally{
-		
 		}
 		//System.out.println("\nTotal number of addresses provided : "+csvList.size());
 	}

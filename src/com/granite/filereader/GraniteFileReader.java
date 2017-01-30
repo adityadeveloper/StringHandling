@@ -25,20 +25,21 @@ public class GraniteFileReader {
             String[] line;
           
             while ((line = reader.readNext()) != null) {
-            	GraniteVO graniteVO = new GraniteVO();
-            	
-    			graniteVO.setEquipment_status(line[0]);
-    			graniteVO.setDevice_code(line[1]);
-    			graniteVO.setFacility_id(line[2]);
-    			graniteVO.setModified_date_time(line[3]);
-    			graniteVO.setFull_address(line[4]);
-    			graniteVO.setCountry(line[5]);
-    			graniteVO.setPincode(line[6]);
-    			graniteVO.setEquip_ref_name(line[7]);
-    			graniteVO.setFloor(line[8]);
-    			graniteVO.setBssid(line[9]);
-    			
-    			GraniteList.add(graniteVO);
+            	//System.out.println("length = " + line.length);
+            	if(line.length>=10){
+	            	GraniteVO graniteVO = new GraniteVO();
+	    			graniteVO.setEquipment_status(line[0]);
+	    			graniteVO.setDevice_code(line[1]);
+	    			graniteVO.setFacility_id(line[2]);
+	    			graniteVO.setModified_date_time(line[3]);
+	    			graniteVO.setFull_address(line[4]);
+	    			graniteVO.setCountry(line[5]);
+	    			graniteVO.setPincode(line[6]);
+	    			graniteVO.setEquip_ref_name(line[7]);
+	    			graniteVO.setFloor(line[8]);
+	    			graniteVO.setBssid(line[9]);
+	    			GraniteList.add(graniteVO);
+            	}
             }
             GraniteList.remove(0);
             return GraniteList;

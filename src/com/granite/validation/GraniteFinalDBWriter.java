@@ -60,6 +60,7 @@ public class GraniteFinalDBWriter {
 			}
 			
 			stmt = dbConnection.createStatement();
+			stmt.execute("DELETE from granitefinal where is_active = true");
 			stmt.execute("UPDATE granitefinal SET is_active = true");
 			long endTimeStamp = System.currentTimeMillis();
 			System.out.println("Fianl Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms");
