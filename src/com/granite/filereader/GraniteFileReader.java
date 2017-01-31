@@ -20,8 +20,6 @@ public class GraniteFileReader {
 			long startTimeStamp = System.currentTimeMillis();
 			System.out.println("CSV file reading started at "+ new Timestamp(startTimeStamp));
             reader = new CSVReader(new FileReader(csvFileName));
-            long endTimeStamp = System.currentTimeMillis();
-			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
             String[] line;
           
             while ((line = reader.readNext()) != null) {
@@ -65,7 +63,10 @@ public class GraniteFileReader {
             	}
             }
             GraniteList.remove(0);
+            long endTimeStamp = System.currentTimeMillis();
+			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
             return GraniteList;
+            
         } 
         catch (IOException e) {
             e.printStackTrace();
