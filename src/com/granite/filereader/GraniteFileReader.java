@@ -26,7 +26,7 @@ public class GraniteFileReader {
           
             while ((line = reader.readNext()) != null) {
             	//System.out.println("length = " + line.length);
-            	if(line.length>=10){
+            	if(line.length>=32){
 	            	GraniteVO graniteVO = new GraniteVO();
 	    			graniteVO.setEquipment_status(line[0]);
 	    			graniteVO.setDevice_code(line[1]);
@@ -38,6 +38,29 @@ public class GraniteFileReader {
 	    			graniteVO.setEquip_ref_name(line[7]);
 	    			graniteVO.setFloor(line[8]);
 	    			graniteVO.setBssid(line[9]);
+	    			graniteVO.setAp_group_name(line[10]);
+	    			graniteVO.setEquipment_id(line[11]);
+	    			graniteVO.setRj_equipme_rjid(line[12]);
+	    			graniteVO.setSite_name(line[13]);
+	    			graniteVO.setSite_id(line[14]);
+	    			graniteVO.setSap_id(line[15]);
+	    			graniteVO.setSite_location(line[16]);
+	    			graniteVO.setGis_lat(line[17]);
+	    			graniteVO.setGis_long(line[18]);
+	    			graniteVO.setR4g_state(line[19]);
+	    			graniteVO.setCircle(line[20]);
+	    			graniteVO.setCity_code(line[21]);
+	    			graniteVO.setCity_name(line[22]);
+	    			graniteVO.setCity_rank(line[23]);
+	    			graniteVO.setBusiness_rank(line[24]);
+	    			graniteVO.setArea(line[25]);
+	    			graniteVO.setEquipment_type(line[26]);
+	    			graniteVO.setEquipment_model(line[27]);
+	    			graniteVO.setEquipment_device_code(line[28]);
+	    			graniteVO.setAccess_point_make(line[29]);
+	    			graniteVO.setAccess_point_model(line[30]);
+	    			graniteVO.setEquipment_hw_type(line[31]);
+	    			
 	    			GraniteList.add(graniteVO);
             	}
             }
@@ -61,7 +84,7 @@ public class GraniteFileReader {
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
 		GraniteDBWriter db = new GraniteDBWriter();
-		List<GraniteVO> test = gr.createGraniteList("wifi_ap_141020161848.csv");
+		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161900.csv");
 		
 		try{
 			db.insertIntoGraniteTable(test);
