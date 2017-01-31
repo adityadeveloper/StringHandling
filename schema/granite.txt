@@ -1,0 +1,47 @@
+-- Table: granite
+
+-- DROP TABLE granite;
+
+CREATE TABLE granite
+(
+  gid bigserial NOT NULL,
+  equipment_status text,
+  device_code text,
+  facility_id text,
+  modified_date_time text,
+  full_address text,
+  country text,
+  pincode text,
+  equip_ref_name text,
+  floor text,
+  bssid text,
+  "timestamp" timestamp without time zone,
+  ap_group_name text,
+  equipment_id text,
+  rj_equipme_rjid text,
+  site_name text,
+  site_id text,
+  sap_id text,
+  site_location text,
+  gis_lat text,
+  gis_long text,
+  r4g_state text,
+  circle text,
+  city_code text,
+  city_name text,
+  city_rank text,
+  business_rank text,
+  area text,
+  equipment_type text,
+  equipment_model text,
+  equipment_device_code text,
+  access_point_make text,
+  access_point_model text,
+  equipement_hw_type text,
+  CONSTRAINT granite_pkey PRIMARY KEY (gid)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE granite
+  OWNER TO postgres;
