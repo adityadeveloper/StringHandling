@@ -11,7 +11,19 @@ public class ConfigReader {
 	private String DB_CONNECTION;
 	private String DB_USER;
 	private String DB_PASSWORD;
+	private String EQUIPMENT_TYPE;
+	private String EQUIPMENT_STATUS;
 	
+	public String[] getEQUIPMENT_TYPE() {
+		String[] EQUIPMENT_TYPE_ARRAY = EQUIPMENT_TYPE.split(":");
+		return EQUIPMENT_TYPE_ARRAY;
+	}
+
+	public String[] getEQUIPMENT_STATUS() {
+		String[] EQUIPMENT_STATUS_ARRAY = EQUIPMENT_STATUS.split(":");
+		return EQUIPMENT_STATUS_ARRAY;
+	}
+
 	public String getDB_DRIVER() {
 		return DB_DRIVER;
 	}
@@ -39,6 +51,8 @@ public class ConfigReader {
 		DB_CONNECTION = property.getProperty("db_url");
 		DB_USER = property.getProperty("db_username");
 		DB_PASSWORD = property.getProperty("db_password");
+		EQUIPMENT_TYPE = property.getProperty("equipment_type");
+		EQUIPMENT_STATUS = property.getProperty("equipment_status");
 	}
 	
 	catch(IOException ex){
