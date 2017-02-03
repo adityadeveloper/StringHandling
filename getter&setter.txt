@@ -1,0 +1,120 @@
+equipment_status, modified_date_time, full_address, country, pincode, equip_ref_name, floor, bssid, ap_group_name, equipment_id, rj_equipme_rjid, site_name, site_id, site_location, gis_lat, gis_long, r4g_state, circle, city_code, city_name, equipment_type, equipment_device_code, access_point_make
+
+
+				oneGraniteDBRow.setBssid(rs.getString("bssid"));
+				oneGraniteDBRow.setCountry(rs.getString("country"));
+				oneGraniteDBRow.setDevice_code(rs.getString("device_code"));
+				oneGraniteDBRow.setEquip_ref_name(rs.getString("equip_ref_name"));
+				oneGraniteDBRow.setEquipment_status(rs.getString("equipment_status"));
+				oneGraniteDBRow.setFacility_id(rs.getString("facility_id"));
+				oneGraniteDBRow.setFloor(rs.getString("floor"));
+				oneGraniteDBRow.setFull_address(rs.getString("full_address"));
+				oneGraniteDBRow.setModified_date_time(rs.getString("modified_date_time"));
+				oneGraniteDBRow.setPincode(rs.getString("pincode"));
+				oneGraniteDBRow.setAp_group_name(rs.getString("ap_group_name"));
+				oneGraniteDBRow.setEquipment_id(rs.getString("equipment_id"));
+				oneGraniteDBRow.setRj_equipme_rjid(rs.getString("rj_equipme_rjid"));
+				oneGraniteDBRow.setSite_name(rs.getString("site_name"));
+				oneGraniteDBRow.setSite_id(rs.getString("site_id"));
+				oneGraniteDBRow.setSap_id(rs.getString("sap_id"));
+				oneGraniteDBRow.setSite_location(rs.getString("site_location"));
+				oneGraniteDBRow.setGis_lat(rs.getString("gis_lat"));
+				oneGraniteDBRow.setGis_long(rs.getString("gis_long"));
+				oneGraniteDBRow.setR4g_state(rs.getString("r4g_state"));
+				oneGraniteDBRow.setCircle(rs.getString("circle"));
+				oneGraniteDBRow.setCity_code(rs.getString("city_code"));
+				oneGraniteDBRow.setCity_name(rs.getString("city_name"));
+				oneGraniteDBRow.setCity_rank(rs.getString("city_rank"));
+				oneGraniteDBRow.setBusiness_rank(rs.getString("business_rank"));
+				oneGraniteDBRow.setArea(rs.getString("area"));
+				oneGraniteDBRow.setEquipment_type(rs.getString("equipment_type"));
+				oneGraniteDBRow.setEquipment_model(rs.getString("equipment_model"));
+				oneGraniteDBRow.setEquipment_device_code(rs.getString("equipment_device_code"));
+				oneGraniteDBRow.setAccess_point_make(rs.getString("access_point_make"));
+				oneGraniteDBRow.setAccess_point_model(rs.getString("access_point_model"));
+				oneGraniteDBRow.setEquipment_hw_type(rs.getString("equipement_hw_type"));
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				preparedStatement.setString(1,oneGraniteVO.getEquipment_status());
+				preparedStatement.setString(2,oneGraniteVO.getDevice_code());
+				preparedStatement.setString(3,oneGraniteVO.getFacility_id());
+				preparedStatement.setString(4,oneGraniteVO.getModified_date_time());
+				preparedStatement.setString(5,oneGraniteVO.getFull_address());
+				preparedStatement.setString(6,oneGraniteVO.getCountry());
+				preparedStatement.setString(7,oneGraniteVO.getPincode());
+				preparedStatement.setString(8,oneGraniteVO.getEquip_ref_name());
+				preparedStatement.setString(9,oneGraniteVO.getFloor());
+				preparedStatement.setString(10,oneGraniteVO.getBssid());
+				preparedStatement.setTimestamp(11, new Timestamp(System.currentTimeMillis()));
+				preparedStatement.setString(12,oneGraniteVO.getAp_group_name());
+				preparedStatement.setString(13,oneGraniteVO.getEquipment_id());
+				preparedStatement.setString(14,oneGraniteVO.getRj_equipme_rjid());
+				preparedStatement.setString(15,oneGraniteVO.getSite_name());
+				preparedStatement.setString(16,oneGraniteVO.getSite_id());
+				preparedStatement.setString(17,oneGraniteVO.getSap_id());
+				preparedStatement.setString(18,oneGraniteVO.getSite_location());
+				preparedStatement.setString(19,oneGraniteVO.getGis_lat());
+				preparedStatement.setString(20,oneGraniteVO.getGis_long());
+				preparedStatement.setString(21,oneGraniteVO.getR4g_state());
+				preparedStatement.setString(22,oneGraniteVO.getCircle());
+				preparedStatement.setString(23,oneGraniteVO.getCity_code());
+				preparedStatement.setString(24,oneGraniteVO.getCity_name());
+				preparedStatement.setString(25,oneGraniteVO.getCity_rank());
+				preparedStatement.setString(26,oneGraniteVO.getBusiness_rank());
+				preparedStatement.setString(27,oneGraniteVO.getArea());
+				preparedStatement.setString(28,oneGraniteVO.getEquipment_type());
+				preparedStatement.setString(29,oneGraniteVO.getEquipment_model());
+				preparedStatement.setString(30,oneGraniteVO.getEquipment_device_code());
+				preparedStatement.setString(31,oneGraniteVO.getAccess_point_make());
+				preparedStatement.setString(32,oneGraniteVO.getAccess_point_model());
+				preparedStatement.setString(33,oneGraniteVO.getEquipment_hw_type());
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					graniteVO.setEquipment_status(line[0]);
+	    			graniteVO.setDevice_code(line[1]);
+	    			graniteVO.setFacility_id(line[2]);
+	    			graniteVO.setModified_date_time(line[3]);
+	    			graniteVO.setFull_address(line[4]);
+	    			graniteVO.setCountry(line[5]);
+	    			graniteVO.setPincode(line[6]);
+	    			graniteVO.setEquip_ref_name(line[7]);
+	    			graniteVO.setFloor(line[8]);
+	    			graniteVO.setBssid(line[9]);
+	    			graniteVO.setAp_group_name(line[10]);
+	    			graniteVO.setEquipment_id(line[11]);
+	    			graniteVO.setRj_equipme_rjid(line[12]);
+	    			graniteVO.setSite_name(line[13]);
+	    			graniteVO.setSite_id(line[14]);
+	    			graniteVO.setSap_id(line[15]);
+	    			graniteVO.setSite_location(line[16]);
+	    			graniteVO.setGis_lat(line[17]);
+	    			graniteVO.setGis_long(line[18]);
+	    			graniteVO.setR4g_state(line[19]);
+	    			graniteVO.setCircle(line[20]);
+	    			graniteVO.setCity_code(line[21]);
+	    			graniteVO.setCity_name(line[22]);
+	    			graniteVO.setCity_rank(line[23]);
+	    			graniteVO.setBusiness_rank(line[24]);
+	    			graniteVO.setArea(line[25]);
+	    			graniteVO.setEquipment_type(line[26]);
+	    			graniteVO.setEquipment_model(line[27]);
+	    			graniteVO.setEquipment_device_code(line[28]);
+	    			graniteVO.setAccess_point_make(line[29]);
+	    			graniteVO.setAccess_point_model(line[30]);
+	    			graniteVO.setEquipment_hw_type(line[31]);

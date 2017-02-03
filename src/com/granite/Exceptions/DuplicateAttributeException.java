@@ -1,7 +1,8 @@
-package com.granite.validation;
+package com.granite.Exceptions;
 
 public class DuplicateAttributeException extends Exception {
-	DuplicateAttributeException(String duplicateAttributeName, String duplicateAttributeValue){
+	
+	public DuplicateAttributeException(String duplicateAttributeName, String duplicateAttributeValue){
 		System.out.println("Duplicate record " + duplicateAttributeName + " = " + duplicateAttributeValue + " in Granite data");
 	}
 }
