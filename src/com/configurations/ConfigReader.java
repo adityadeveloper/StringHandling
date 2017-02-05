@@ -13,7 +13,37 @@ public class ConfigReader {
 	private String DB_PASSWORD;
 	private String EQUIPMENT_TYPE;
 	private String EQUIPMENT_STATUS;
+	private String category;
+	private String sub_category;
+	private String radius;
+	private String wifi_indoor;
+	private String wifi_outdoor;
+	private String image_reference;
 	
+	public String getImage_reference() {
+		return image_reference;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public String getSub_category() {
+		return sub_category;
+	}
+
+	public String getRadius() {
+		return radius;
+	}
+
+	public String getWifi_indoor() {
+		return wifi_indoor;
+	}
+
+	public String getWifi_outdoor() {
+		return wifi_outdoor;
+	}
+
 	public String[] getEQUIPMENT_TYPE() {
 		String[] EQUIPMENT_TYPE_ARRAY = EQUIPMENT_TYPE.split(":");
 		return EQUIPMENT_TYPE_ARRAY;
@@ -53,6 +83,12 @@ public class ConfigReader {
 		DB_PASSWORD = property.getProperty("db_password");
 		EQUIPMENT_TYPE = property.getProperty("equipment_type");
 		EQUIPMENT_STATUS = property.getProperty("equipment_status");
+		wifi_indoor = property.getProperty("wifi_indoor");
+		wifi_outdoor = property.getProperty("wifi_outdoor");
+		radius = property.getProperty("radius");
+		category = property.getProperty("category");
+		sub_category = property.getProperty("sub_category");
+		image_reference = property.getProperty("image_reference");
 	}
 	
 	catch(IOException ex){
@@ -76,5 +112,6 @@ public class ConfigReader {
 		System.out.println("2) "+conf.getDB_DRIVER());
 		System.out.println("3) "+conf.getDB_PASSWORD());
 		System.out.println("4) "+conf.getDB_USER());
+		System.out.println("4) "+conf.getWifi_indoor());
 	}
 }

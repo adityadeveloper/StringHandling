@@ -27,7 +27,7 @@ public class GraniteDBWriter {
 
 
 	public void insertIntoGraniteTable(List<GraniteVO> graniteVO) throws SQLException {
-
+		
 		Connection dbConnection = null;
 		Statement stmt = null;
 		PreparedStatement preparedStatement = null;
@@ -38,6 +38,7 @@ public class GraniteDBWriter {
 		
 		try {
 			dbConnection = getDBConnection();
+			dbConnection.setAutoCommit(false);
 			stmt = dbConnection.createStatement();
 
 			stmt.executeUpdate("TRUNCATE granite");
@@ -83,17 +84,19 @@ public class GraniteDBWriter {
 				preparedStatement.setString(32,oneGraniteVO.getAccess_point_model());
 				preparedStatement.setString(33,oneGraniteVO.getEquipment_hw_type());
 				
-				
 				// execute insert SQL stetement
 				preparedStatement.executeUpdate();
-	
 				//System.out.println("Record is inserted into granite table for Equip_ref_name : "+oneGraniteVO.getEquip_ref_name());
 			}
+			//System.out.println("before commit");
+			//Thread.sleep(15000);
+			dbConnection.commit();
 			long endTimeStamp = System.currentTimeMillis();
 			System.out.println("Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
 		} 
 		
-		catch (SQLException e) {
+		catch (SQLException /*| InterruptedException*/ e) {
+			dbConnection.rollback();
 			System.out.println(e.getMessage());
 		} 
 		
@@ -109,26 +112,20 @@ public class GraniteDBWriter {
 	}
 
 	private static Connection getDBConnection() {
-
 		Connection dbConnection = null;
-
 		try {
 			Class.forName(DB_DRIVER);
 		} 
-		
 		catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
-
 		try {
 			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER,DB_PASSWORD);                
 			return dbConnection;
 		} 
-		
 		catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 		return dbConnection;
-	
 	}
 }

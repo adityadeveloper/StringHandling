@@ -85,7 +85,7 @@ public class GraniteFileReader {
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
 		GraniteDBWriter db = new GraniteDBWriter();
-		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161901.csv");
+		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161900.csv");
 		
 		try{
 			db.insertIntoGraniteTable(test);
