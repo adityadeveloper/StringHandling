@@ -12,16 +12,16 @@ import com.granite.model.*;
 
 public class GraniteFinalDBWriter {
 	private static final String DB_DRIVER;
-	private static final String DB_CONNECTION;
-	private static final String DB_USER;
-	private static final String DB_PASSWORD;
+	private static final String DB_CONNECTION_LBS;
+	private static final String DB_USER_LBS;
+	private static final String DB_PASSWORD_LBS;
 	
 	static{
 		ConfigReader conf = new ConfigReader();
 		DB_DRIVER = conf.getDB_DRIVER();
-		DB_CONNECTION = conf.getDB_CONNECTION();
-		DB_USER = conf.getDB_USER();
-		DB_PASSWORD = conf.getDB_PASSWORD();
+		DB_CONNECTION_LBS = conf.getDB_CONNECTION_LBS();
+		DB_USER_LBS = conf.getDB_USER_LBS();
+		DB_PASSWORD_LBS = conf.getDB_PASSWORD_LBS();
 	}
 
 
@@ -36,7 +36,7 @@ public class GraniteFinalDBWriter {
 				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,ST_GeomFromText(?),?,?,?,?,?,?,cast(? as json))";
 		
 		try {
-			dbConnection = getDBConnection();
+			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 		
 			long startTimeStamp = System.currentTimeMillis();
@@ -99,7 +99,7 @@ public class GraniteFinalDBWriter {
 		}
 	}
 
-	private static Connection getDBConnection() {
+	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
 		Connection dbConnection = null;
 		try {
 			Class.forName(DB_DRIVER);
@@ -108,7 +108,7 @@ public class GraniteFinalDBWriter {
 			System.out.println(e.getMessage());
 		}
 		try {
-			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER,DB_PASSWORD);                
+			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
 			return dbConnection;
 		} 
 		catch (SQLException e) {

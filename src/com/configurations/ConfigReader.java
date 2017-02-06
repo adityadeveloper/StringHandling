@@ -8,9 +8,12 @@ import java.util.Properties;
 public class ConfigReader {
 	
 	private String DB_DRIVER;
-	private String DB_CONNECTION;
-	private String DB_USER;
-	private String DB_PASSWORD;
+	private String DB_CONNECTION_LBS;
+	private String DB_USER_LBS;
+	private String DB_PASSWORD_LBS;
+	private String DB_CONNECTION_INTEGRATION;
+	private String DB_USER_INTEGRATION;
+	private String DB_PASSWORD_INTEGRATION;
 	private String EQUIPMENT_TYPE;
 	private String EQUIPMENT_STATUS;
 	private String category;
@@ -64,16 +67,27 @@ public class ConfigReader {
 		return DB_DRIVER;
 	}
 
-	public String getDB_CONNECTION() {
-		return DB_CONNECTION;
+	public String getDB_CONNECTION_LBS() {
+		return DB_CONNECTION_LBS;
 	}
 
-	public String getDB_USER() {
-		return DB_USER;
+	public String getDB_USER_LBS() {
+		return DB_USER_LBS;
 	}
 
-	public String getDB_PASSWORD() {
-		return DB_PASSWORD;
+	public String getDB_PASSWORD_LBS() {
+		return DB_PASSWORD_LBS;
+	}
+	public String getDB_CONNECTION_INTEGRATION() {
+		return DB_CONNECTION_INTEGRATION;
+	}
+
+	public String getDB_USER_INTEGRATION() {
+		return DB_USER_INTEGRATION;
+	}
+
+	public String getDB_PASSWORD_INTEGRATION() {
+		return DB_PASSWORD_INTEGRATION;
 	}
 
 	public ConfigReader(){                  
@@ -84,9 +98,12 @@ public class ConfigReader {
 		input = new FileInputStream("config.properties");
 		property.load(input);
 		DB_DRIVER = property.getProperty("db_driver").trim();
-		DB_CONNECTION = property.getProperty("db_url").trim();
-		DB_USER = property.getProperty("db_username").trim();
-		DB_PASSWORD = property.getProperty("db_password").trim();
+		DB_CONNECTION_LBS = property.getProperty("db_url_lbs").trim();
+		DB_USER_LBS = property.getProperty("db_username_lbs").trim();
+		DB_PASSWORD_LBS = property.getProperty("db_password_lbs").trim();
+		DB_CONNECTION_INTEGRATION = property.getProperty("db_url_integration").trim();
+		DB_USER_INTEGRATION = property.getProperty("db_username_integration").trim();
+		DB_PASSWORD_INTEGRATION = property.getProperty("db_password_integration").trim();
 		EQUIPMENT_TYPE = property.getProperty("equipment_type").trim();
 		EQUIPMENT_STATUS = property.getProperty("equipment_status").trim();
 		wifi_indoor = property.getProperty("wifi_indoor").trim();
@@ -115,10 +132,10 @@ public class ConfigReader {
 	
 	public static void main(String args[]){
 		ConfigReader conf = new ConfigReader();
-		System.out.println("1) "+conf.getDB_CONNECTION());
+		System.out.println("1) "+conf.getDB_CONNECTION_LBS());
 		System.out.println("2) "+conf.getDB_DRIVER());
-		System.out.println("3) "+conf.getDB_PASSWORD());
-		System.out.println("4) "+conf.getDB_USER());
+		System.out.println("3) "+conf.getDB_PASSWORD_LBS());
+		System.out.println("4) "+conf.getDB_USER_LBS());
 		System.out.println("4) "+conf.getWifi_indoor());
 	}
 }

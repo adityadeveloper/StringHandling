@@ -13,9 +13,9 @@ import com.granite.model.GraniteVO;
 
 public class GraniteDBReader{
 	private static final String DB_DRIVER;
-	private static final String DB_CONNECTION;
-	private static final String DB_USER;
-	private static final String DB_PASSWORD;
+	private static final String DB_CONNECTION_LBS;
+	private static final String DB_USER_LBS;
+	private static final String DB_PASSWORD_LBS;
 	private static final String[] EQUIPMENT_TYPE;
 	private static final String[] EQUIPMENT_STATUS;
 	private List<GraniteVO> GraniteVOFromDB;
@@ -23,9 +23,9 @@ public class GraniteDBReader{
 	static{
 		ConfigReader conf = new ConfigReader();
 		DB_DRIVER = conf.getDB_DRIVER();
-		DB_CONNECTION = conf.getDB_CONNECTION();
-		DB_USER = conf.getDB_USER();
-		DB_PASSWORD = conf.getDB_PASSWORD();
+		DB_CONNECTION_LBS = conf.getDB_CONNECTION_LBS();
+		DB_USER_LBS = conf.getDB_USER_LBS();
+		DB_PASSWORD_LBS = conf.getDB_PASSWORD_LBS();
 		EQUIPMENT_TYPE = conf.getEQUIPMENT_TYPE();
 		EQUIPMENT_STATUS = conf.getEQUIPMENT_STATUS();
 	}
@@ -39,7 +39,7 @@ public class GraniteDBReader{
 		String graniteSelectQuery = selectQueryBuilder();
 	
 		try{
-			dbConnection = getDBConnection();
+			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
 			stmt = dbConnection.createStatement();
 			long startTime = System.currentTimeMillis();
 			System.out.println("Granite DB read started at "+new Timestamp(startTime));
@@ -100,7 +100,7 @@ public class GraniteDBReader{
 	}
 	
 	
-	private static Connection getDBConnection() {
+	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
 		Connection dbConnection = null;
 		try {
 			Class.forName(DB_DRIVER);
@@ -109,7 +109,7 @@ public class GraniteDBReader{
 			System.out.println(e.getMessage());
 		}
 		try {
-			dbConnection = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);                
+			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
 			return dbConnection;
 		} 
 		catch (SQLException e) {

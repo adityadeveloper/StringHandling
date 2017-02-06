@@ -88,7 +88,7 @@ public class GraniteFileReader {
 		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161900.csv");
 		
 		try{
-			db.insertIntoGraniteTable(test);
+			db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
 		}
 		
 		catch(SQLException sq){

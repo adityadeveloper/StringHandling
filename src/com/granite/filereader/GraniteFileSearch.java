@@ -14,56 +14,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.configurations.ConfigReader;
+import com.granite.model.GraniteFileVO;
 
-public class GraniteFileList implements Comparable<GraniteFileList>{
+public class GraniteFileSearch{
 	
-	private String fileName;
-	private Timestamp fileTimeStamp;
+
 	private static final String FILE_PATH;
 	private static final String DB_DRIVER;
-	private static final String DB_CONNECTION;
-	private static final String DB_USER;
-	private static final String DB_PASSWORD;
+	private static final String DB_CONNECTION_LBS;
+	private static final String DB_USER_LBS;
+	private static final String DB_PASSWORD_LBS;
 	
 	static{
 		ConfigReader config = new ConfigReader();
 		FILE_PATH = config.getGranite_file_path();
 		DB_DRIVER = config.getDB_DRIVER();
-		DB_CONNECTION = config.getDB_CONNECTION();
-		DB_USER = config.getDB_USER();
-		DB_PASSWORD = config.getDB_PASSWORD();
-	}
-	
-	@Override
-	public int compareTo(GraniteFileList gfs) {
-		return this.getFileTimeStamp().compareTo(gfs.getFileTimeStamp());
-	}
-	
-    public String getFileName() {
-		return fileName;
-	}
-    
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	
-	public Timestamp getFileTimeStamp() {
-		return fileTimeStamp;
-	}
-	
-	public void setFileTimeStamp(Timestamp fileTimeStamp) {
-		this.fileTimeStamp = fileTimeStamp;
+		DB_CONNECTION_LBS = config.getDB_CONNECTION_LBS();
+		DB_USER_LBS = config.getDB_USER_LBS();
+		DB_PASSWORD_LBS = config.getDB_PASSWORD_LBS();
 	}
 
-	
-	public static List<GraniteFileList> listofFilesInFolder() {
+	public static List<GraniteFileVO> listofFilesInFolder() {
 		File folder = new File(FILE_PATH);
-		Pattern uName = Pattern.compile("wifi_ap_[0-9]{12}.csv");
-		List<GraniteFileList> list = new ArrayList<GraniteFileList>();
+		Pattern granitePattern = Pattern.compile("wifi_ap_[0-9]{12}.csv");
+		List<GraniteFileVO> list = new ArrayList<GraniteFileVO>();
 	    for (File fileEntry : folder.listFiles()) {
-	        Matcher mUname = uName.matcher(fileEntry.getName());
-	        if(mUname.matches()){
-	        	GraniteFileList oneFile = new GraniteFileList();
+	        Matcher match = granitePattern.matcher(fileEntry.getName());
+	        if(match.matches()){
+	        	GraniteFileVO oneFile = new GraniteFileVO();
 	           	oneFile.setFileName(fileEntry.getName());
 	        	oneFile.setFileTimeStamp(new Timestamp(fileEntry.lastModified()));
 	        	list.add(oneFile);
@@ -79,9 +57,8 @@ public class GraniteFileList implements Comparable<GraniteFileList>{
 		Statement stmt = null;
 		List<String> dbFileList = new ArrayList<>();
 		try{
-			dbConnection = getDBConnection();
+			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
 			stmt = dbConnection.createStatement();
-			System.out.println(fileQueryBuilder());
 			ResultSet rs = stmt.executeQuery(fileQueryBuilder());
 			
 			while(rs.next()){
@@ -109,9 +86,9 @@ public class GraniteFileList implements Comparable<GraniteFileList>{
 	}
 	
 	public static String fileQueryBuilder(){
-		//GraniteFileList gfl = new GraniteFileList();
-		List<GraniteFileList> dirFileList = GraniteFileList.listofFilesInFolder();
-		StringBuilder query = new StringBuilder("SELECT file_name from integration_file_read_logger where file_name NOT IN (");
+		
+		List<GraniteFileVO> dirFileList = GraniteFileSearch.listofFilesInFolder();
+		StringBuilder query = new StringBuilder("SELECT file_name from integration_file_read_logger where file_name IN (");
 		
 		if (dirFileList.size() == 1){
 			query.append("'"+ dirFileList.get(0).getFileName() +"',");
@@ -127,7 +104,7 @@ public class GraniteFileList implements Comparable<GraniteFileList>{
 	}
 
 	
-	private static Connection getDBConnection() {
+	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
 		Connection dbConnection = null;
 		try {
 			Class.forName(DB_DRIVER);
@@ -136,7 +113,7 @@ public class GraniteFileList implements Comparable<GraniteFileList>{
 			System.out.println(e.getMessage());
 		}
 		try {
-			dbConnection = DriverManager.getConnection(DB_CONNECTION,DB_USER,DB_PASSWORD);                
+			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
 			return dbConnection;
 		} 
 		catch (SQLException e) {
@@ -146,17 +123,21 @@ public class GraniteFileList implements Comparable<GraniteFileList>{
 	}
 	
 	
+	public String graniteFilePicker(){
+		String fileName = null;
+		List<String> dbFileList = GraniteFileSearch.listOfDBFiles();
+		List<GraniteFileVO> dirFileList = GraniteFileSearch.listofFilesInFolder();
+		for(GraniteFileVO oneFile : dirFileList){
+			if (dbFileList.contains(oneFile.getFileName())){
+				continue;
+			}
+			fileName = oneFile.getFileName();
+		}
+		return fileName;
+	}
+	
 	public static void main(String args[]){
-		
-		//GraniteFileList a = new GraniteFileList();
-		List<String> b = GraniteFileList.listOfDBFiles();
-		System.out.println(b);
-/*		List<GraniteFileList> abc = a.listFilesForFolder();
-		for (GraniteFileList oneFile : abc){
-			System.out.println(oneFile.getFileName()+"\t"+oneFile.getFileTimeStamp());
-		}*/
-		//System.out.println(GraniteFileList.fileQueryBuilder());
-		
-		
+		GraniteFileSearch a = new GraniteFileSearch();
+		System.out.println(a.graniteFilePicker());
 	}
 }
