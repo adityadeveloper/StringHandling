@@ -85,12 +85,16 @@ public class GraniteDBReader{
 		} 
 		
 		finally {
-			if (stmt != null) {
-				stmt.close();
+			try{
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (dbConnection != null) {
+					dbConnection.close();
+				}
 			}
-
-			if (dbConnection != null) {
-				dbConnection.close();
+			catch(SQLException sqx){
+				
 			}
 		}
 	}

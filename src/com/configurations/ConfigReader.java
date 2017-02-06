@@ -19,7 +19,13 @@ public class ConfigReader {
 	private String wifi_indoor;
 	private String wifi_outdoor;
 	private String image_reference;
+	private String granite_file_path;
 	
+		
+	public String getGranite_file_path() {
+		return granite_file_path;
+	}
+
 	public String getImage_reference() {
 		return image_reference;
 	}
@@ -77,18 +83,19 @@ public class ConfigReader {
 	try{
 		input = new FileInputStream("config.properties");
 		property.load(input);
-		DB_DRIVER = property.getProperty("db_driver");
-		DB_CONNECTION = property.getProperty("db_url");
-		DB_USER = property.getProperty("db_username");
-		DB_PASSWORD = property.getProperty("db_password");
-		EQUIPMENT_TYPE = property.getProperty("equipment_type");
-		EQUIPMENT_STATUS = property.getProperty("equipment_status");
-		wifi_indoor = property.getProperty("wifi_indoor");
-		wifi_outdoor = property.getProperty("wifi_outdoor");
-		radius = property.getProperty("radius");
-		category = property.getProperty("category");
-		sub_category = property.getProperty("sub_category");
-		image_reference = property.getProperty("image_reference");
+		DB_DRIVER = property.getProperty("db_driver").trim();
+		DB_CONNECTION = property.getProperty("db_url").trim();
+		DB_USER = property.getProperty("db_username").trim();
+		DB_PASSWORD = property.getProperty("db_password").trim();
+		EQUIPMENT_TYPE = property.getProperty("equipment_type").trim();
+		EQUIPMENT_STATUS = property.getProperty("equipment_status").trim();
+		wifi_indoor = property.getProperty("wifi_indoor").trim();
+		wifi_outdoor = property.getProperty("wifi_outdoor").trim();
+		radius = property.getProperty("radius").trim();
+		category = property.getProperty("category").trim();
+		sub_category = property.getProperty("sub_category").trim();
+		image_reference = property.getProperty("image_reference").trim();
+		granite_file_path = property.getProperty("granite_file_path").trim();
 	}
 	
 	catch(IOException ex){
