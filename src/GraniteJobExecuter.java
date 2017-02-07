@@ -2,6 +2,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.quartz.Job;
+
 import com.granite.filereader.GraniteDBWriter;
 import com.granite.filereader.GraniteFileReader;
 import com.granite.filereader.GraniteFileSearch;
@@ -10,15 +12,15 @@ import com.granite.validation.GraniteDBReader;
 import com.granite.validation.GraniteDataValidation;
 import com.granite.validation.GraniteFinalDBWriter;
 
-public class GraniteJobExecuter {
+public class GraniteJobExecuter implements Job{
 
-	public static void main(String[] args) {
-		long startTime = System.currentTimeMillis(); System.out.println("Granite Data processing started at "+new Timestamp(startTime));
-		GraniteFileReader gr = new GraniteFileReader();
-		GraniteDBWriter db = new GraniteDBWriter();
-		GraniteDBReader reader = new GraniteDBReader();
-		GraniteDataValidation validator = new GraniteDataValidation();
-		GraniteFinalDBWriter dbf = new GraniteFinalDBWriter();
+	public static void mainJob() {
+		
+		GraniteFileReader gr = null;
+		GraniteDBWriter db = null;
+		GraniteDBReader reader = null;
+		GraniteDataValidation validator = null;
+		GraniteFinalDBWriter dbf = null;
 		GraniteFileSearch gfs = new GraniteFileSearch();
 		
 		String fileName = gfs.graniteFilePicker();
@@ -27,14 +29,37 @@ public class GraniteJobExecuter {
 			System.out.println("No New File Present");
 		}
 		else{
+			long startTime = System.currentTimeMillis(); System.out.println("Granite Data processing started at "+new Timestamp(startTime)+"\nFile Name : "+fileName);
+			gr = new GraniteFileReader();
 			List<GraniteVO> graniteCSV = gr.createGraniteList(fileName);
 			
 			try{
-				db.insertIntoGraniteTable(graniteCSV, fileName);
-				List<GraniteVO> dbData =  reader.readFromGraniteTable();
-				List<GraniteVO> validatedData = validator.graniteValidator(dbData);
-				List<GraniteFinalVO> finalData = validator.graniteFinalListMaker(validatedData);
-				dbf.insertIntoFinalGraniteTable(finalData);
+				if(graniteCSV.size()>0){
+					db = new GraniteDBWriter();
+					db.insertIntoGraniteTable(graniteCSV, fileName);
+				
+					reader = new GraniteDBReader();
+					List<GraniteVO> dbData =  reader.readFromGraniteTable();
+					
+					if (dbData.size()>0){
+						validator = new GraniteDataValidation();
+						List<GraniteVO> validatedData = validator.graniteValidator(dbData);
+						List<GraniteFinalVO> finalData = validator.graniteFinalListMaker(validatedData);
+						if(finalData.size()>0){
+							dbf = new GraniteFinalDBWriter();
+							dbf.insertIntoFinalGraniteTable(finalData);
+						}
+						else{
+							System.out.println("No Records present to insert in places table");
+						}
+					}
+					else{
+						System.out.println("No Records present in Granite table");
+					}
+				}
+				else{
+					System.out.println("No Records present to insert into Granite table");
+				}
 			}
 			catch (SQLException sq){
 				sq.printStackTrace();

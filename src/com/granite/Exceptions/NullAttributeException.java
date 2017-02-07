@@ -1,6 +1,5 @@
 package com.granite.Exceptions;
 
-import com.granite.model.GraniteVO;
 
 public class NullAttributeException extends Exception {
 	private static final long serialVersionUID = 1L;

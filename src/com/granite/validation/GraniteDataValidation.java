@@ -21,7 +21,7 @@ public class GraniteDataValidation {
 	private List<GraniteFinalVO> finalGraniteList;
 	
 	static{
-		ConfigReader config = new ConfigReader();
+		ConfigReader config = ConfigReader.getInstance();
 		CATEGORY = config.getCategory();
 		SUB_CATEGORY = config.getSub_category();
 		RADIUS = Integer.parseInt(config.getRadius());

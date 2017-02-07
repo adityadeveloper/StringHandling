@@ -24,6 +24,7 @@ public class ConfigReader {
 	private String image_reference;
 	private String granite_file_path;
 	
+	private static ConfigReader config = null;
 		
 	public String getGranite_file_path() {
 		return granite_file_path;
@@ -90,7 +91,7 @@ public class ConfigReader {
 		return DB_PASSWORD_INTEGRATION;
 	}
 
-	public ConfigReader(){                  
+	private ConfigReader(){                  
 	Properties property = new Properties();
 	InputStream input = null;
 	
@@ -129,6 +130,13 @@ public class ConfigReader {
 		}
 	}
 }
+	
+	public static ConfigReader getInstance(){
+		if (config == null){
+			config = new ConfigReader();
+		}
+		return config;
+	}
 	
 	public static void main(String args[]){
 		ConfigReader conf = new ConfigReader();

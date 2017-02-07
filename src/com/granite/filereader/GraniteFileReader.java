@@ -5,7 +5,6 @@ import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -23,7 +22,6 @@ public class GraniteFileReader {
             String[] line;
           
             while ((line = reader.readNext()) != null) {
-            	//System.out.println("length = " + line.length);
             	if(line.length>=32){
 	            	GraniteVO graniteVO = new GraniteVO();
 	    			graniteVO.setEquipment_status(line[0]);
@@ -62,7 +60,7 @@ public class GraniteFileReader {
 	    			GraniteList.add(graniteVO);
             	}
             }
-            GraniteList.remove(0);
+            if(GraniteList.size()>0) GraniteList.remove(0);
             long endTimeStamp = System.currentTimeMillis();
 			System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
             return GraniteList;
@@ -87,13 +85,8 @@ public class GraniteFileReader {
 		GraniteDBWriter db = new GraniteDBWriter();
 		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161900.csv");
 		
-		try{
-			db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
-		}
+		db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
+
 		
-		catch(SQLException sq){
-			sq.getMessage();
-			sq.printStackTrace();
-		}
 	}
 }

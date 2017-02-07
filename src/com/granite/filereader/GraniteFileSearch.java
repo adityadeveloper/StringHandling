@@ -21,17 +21,17 @@ public class GraniteFileSearch{
 
 	private static final String FILE_PATH;
 	private static final String DB_DRIVER;
-	private static final String DB_CONNECTION_LBS;
-	private static final String DB_USER_LBS;
-	private static final String DB_PASSWORD_LBS;
+	private static final String DB_CONNECTION_INTEGRATION;
+	private static final String DB_USER_INTEGRATION;
+	private static final String DB_PASSWORD_INTEGRATION;
 	
 	static{
-		ConfigReader config = new ConfigReader();
+		ConfigReader config = ConfigReader.getInstance();
 		FILE_PATH = config.getGranite_file_path();
 		DB_DRIVER = config.getDB_DRIVER();
-		DB_CONNECTION_LBS = config.getDB_CONNECTION_LBS();
-		DB_USER_LBS = config.getDB_USER_LBS();
-		DB_PASSWORD_LBS = config.getDB_PASSWORD_LBS();
+		DB_CONNECTION_INTEGRATION = config.getDB_CONNECTION_INTEGRATION();
+		DB_USER_INTEGRATION = config.getDB_USER_INTEGRATION();
+		DB_PASSWORD_INTEGRATION = config.getDB_PASSWORD_INTEGRATION();
 	}
 
 	public static List<GraniteFileVO> listofFilesInFolder() {
@@ -57,7 +57,7 @@ public class GraniteFileSearch{
 		Statement stmt = null;
 		List<String> dbFileList = new ArrayList<>();
 		try{
-			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
+			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 			ResultSet rs = stmt.executeQuery(fileQueryBuilder());
 			
@@ -67,6 +67,7 @@ public class GraniteFileSearch{
 			return dbFileList;
 		}
 		catch(SQLException sqx){
+			sqx.printStackTrace();
 			return dbFileList;
 		}
 		finally {
@@ -126,6 +127,7 @@ public class GraniteFileSearch{
 	public String graniteFilePicker(){
 		String fileName = null;
 		List<String> dbFileList = GraniteFileSearch.listOfDBFiles();
+		System.out.println("Searching for Granite Wi_Fi AP files in : "+FILE_PATH);
 		List<GraniteFileVO> dirFileList = GraniteFileSearch.listofFilesInFolder();
 		for(GraniteFileVO oneFile : dirFileList){
 			if (dbFileList.contains(oneFile.getFileName())){

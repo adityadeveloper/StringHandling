@@ -21,7 +21,7 @@ public class GraniteDBWriter {
 	private static final String DB_PASSWORD_INTEGRATION;
 	
 	static{
-		ConfigReader conf = new ConfigReader();
+		ConfigReader conf = ConfigReader.getInstance();
 		DB_DRIVER = conf.getDB_DRIVER();
 		DB_CONNECTION_LBS = conf.getDB_CONNECTION_LBS();
 		DB_USER_LBS = conf.getDB_USER_LBS();
@@ -32,53 +32,54 @@ public class GraniteDBWriter {
 	}
 
 
-	public void insertIntoGraniteTable(List<GraniteVO> graniteVO, String csvFileName) throws SQLException {
-		Connection dbConnection1 = null;
-		Statement stmt1 = null;
-		PreparedStatement preparedStatement1 = null;		
+	public void insertIntoGraniteTable(List<GraniteVO> graniteVO, String csvFileName)  {
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;	
+		Statement stmt = null;
 		
 		try {
-			dbConnection1 = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
-			stmt1 = dbConnection1.createStatement();
+			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			String query = "INSERT INTO integration_file_read_logger"
 					+ "(file_name, type, timestamp, is_success, comment) VALUES "
 					+"(?,?,?,?,?)";
-			preparedStatement1 = dbConnection1.prepareStatement(query);
+			preparedStatement = dbConnection.prepareStatement(query);
 			
-			preparedStatement1.setString(1, csvFileName);
-			preparedStatement1.setString(2, "WIFI_AP_FILE");
-			preparedStatement1.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
-			preparedStatement1.setBoolean(4, true);
-			preparedStatement1.setString(5, "SUCCESS");
+			preparedStatement.setString(1, csvFileName);
+			preparedStatement.setString(2, "WIFI_AP_FILE");
+			preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+			preparedStatement.setBoolean(4, true);
+			preparedStatement.setString(5, "SUCCESS");
 			
-			preparedStatement1.executeUpdate(query);
+			preparedStatement.executeUpdate();
 
 		} 
 		
 		catch (SQLException /*| InterruptedException*/ e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} 
 		
 		finally {
-			if (preparedStatement1 != null) {
-				preparedStatement1.close();
+			try{
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (dbConnection != null) {
+					dbConnection.close();
+				}
 			}
-			if (dbConnection1 != null) {
-				dbConnection1.close();
+			catch(SQLException sqx){
+				sqx.printStackTrace();
 			}
 		}
 		
-		Connection dbConnection = null;
-		Statement stmt = null;
-		PreparedStatement preparedStatement = null;
+
 		String insertTableSQL = "INSERT INTO granite"
 				+ "(equipment_status,device_code,facility_id,modified_date_time,full_address,country,pincode,equip_ref_name,floor,bssid,timestamp,ap_group_name,equipment_id,rj_equipme_rjid,site_name,site_id,sap_id,site_location,gis_lat,gis_long,r4g_state,circle,city_code,city_name,city_rank,business_rank,area,equipment_type,equipment_model,equipment_device_code,access_point_make,access_point_model,equipement_hw_type)"
 				+ "VALUES"
 				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
 	
 		try {
-			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
-			dbConnection.setAutoCommit(false);
+			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 
 			stmt.executeUpdate("TRUNCATE granite");
@@ -130,25 +131,28 @@ public class GraniteDBWriter {
 			}
 			//System.out.println("before commit");
 			//Thread.sleep(15000);
-			dbConnection.commit();
 			long endTimeStamp = System.currentTimeMillis();
 			System.out.println("Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
 		} 
 		
 		catch (SQLException /*| InterruptedException*/ e) {
-			dbConnection.rollback();
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} 
 		
 		finally {
-			if (preparedStatement != null) {
-				preparedStatement.close();
+			try{
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (dbConnection != null) {
+					dbConnection.close();
+				}
 			}
-
-			if (dbConnection != null) {
-				dbConnection.close();
+			catch(SQLException sqx){
+				sqx.printStackTrace();
 			}
 		}
+		
 	}
 
 	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
@@ -157,14 +161,14 @@ public class GraniteDBWriter {
 			Class.forName(DB_DRIVER);
 		} 
 		catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		try {
 			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
 			return dbConnection;
 		} 
 		catch (SQLException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		return dbConnection;
 	}

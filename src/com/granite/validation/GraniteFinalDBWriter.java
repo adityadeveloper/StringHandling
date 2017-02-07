@@ -17,7 +17,7 @@ public class GraniteFinalDBWriter {
 	private static final String DB_PASSWORD_LBS;
 	
 	static{
-		ConfigReader conf = new ConfigReader();
+		ConfigReader conf = ConfigReader.getInstance();
 		DB_DRIVER = conf.getDB_DRIVER();
 		DB_CONNECTION_LBS = conf.getDB_CONNECTION_LBS();
 		DB_USER_LBS = conf.getDB_USER_LBS();
@@ -33,12 +33,12 @@ public class GraniteFinalDBWriter {
 		String insertTableSQL = "INSERT INTO places"
 				+ "(category,sub_category,ril_id,name,floor,full_address,building,street,locality,area,city,state,country,pincode,contact_number,email,website,radius,geom,custom_attributes,image_reference,equipmentneid,bssid,ap_group_name,is_active,custom_attributes_json) "
 				+ "VALUES"
-				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,ST_GeomFromText(?),?,?,?,?,?,?,cast(? as json))";
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,ST_GeomFromText(?,?),?,?,?,?,?,?,cast(? as json))";
 		
 		try {
 			dbConnection = getDBConnection(DB_CONNECTION_LBS,DB_USER_LBS,DB_PASSWORD_LBS);
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
-		
+			
 			long startTimeStamp = System.currentTimeMillis();
 			System.out.println("Final Data insertion started at "+ new Timestamp(startTimeStamp));
 			
@@ -64,13 +64,14 @@ public class GraniteFinalDBWriter {
 				preparedStatement.setString(19, "POINT("+oneFinalGraniteVO.getGeom_long()+" "+oneFinalGraniteVO.getGeom_lat()+")");
 			//	preparedStatement.setDouble(19, oneFinalGraniteVO.getGeom_long());
 				//preparedStatement.setDouble(20, oneFinalGraniteVO.getGeom_lat());
-				preparedStatement.setString(20,oneFinalGraniteVO.getCustom_attributes());			
-				preparedStatement.setString(21,oneFinalGraniteVO.getImage_reference());
-				preparedStatement.setString(22,oneFinalGraniteVO.getEquipmentneid());
-				preparedStatement.setString(23,oneFinalGraniteVO.getBssid());
-				preparedStatement.setString(24,oneFinalGraniteVO.getAp_group_name());	
-				preparedStatement.setBoolean(25, false);				
-				preparedStatement.setString(26,oneFinalGraniteVO.getCa_json());
+				preparedStatement.setInt(20,4326);
+				preparedStatement.setString(21,oneFinalGraniteVO.getCustom_attributes());			
+				preparedStatement.setString(22,oneFinalGraniteVO.getImage_reference());
+				preparedStatement.setString(23,oneFinalGraniteVO.getEquipmentneid());
+				preparedStatement.setString(24,oneFinalGraniteVO.getBssid());
+				preparedStatement.setString(25,oneFinalGraniteVO.getAp_group_name());	
+				preparedStatement.setBoolean(26, false);				
+				preparedStatement.setString(27,oneFinalGraniteVO.getCa_json());
 				
 		//		System.out.println(preparedStatement);
 				

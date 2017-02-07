@@ -2,7 +2,6 @@ package com.granite.model;
 
 import java.sql.Timestamp;
 
-import com.granite.filereader.GraniteFileSearch;
 
 public class GraniteFileVO implements Comparable<GraniteFileVO>{
 	
@@ -11,7 +10,7 @@ public class GraniteFileVO implements Comparable<GraniteFileVO>{
 	
 	@Override
 	public int compareTo(GraniteFileVO gfs) {
-		return gfs.getFileTimeStamp().compareTo(this.getFileTimeStamp());
+		return this.getFileTimeStamp().compareTo(gfs.getFileTimeStamp());
 	}
 	
     public String getFileName() {
