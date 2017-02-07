@@ -23,7 +23,17 @@ public class ConfigReader {
 	private String wifi_outdoor;
 	private String image_reference;
 	private String granite_file_path;
+	private String cron_statement;
+	private String header_structure;
 	
+	public String getHeader_structure() {
+		return header_structure;
+	}
+
+	public String getCron_statement() {
+		return cron_statement;
+	}
+
 	private static ConfigReader config = null;
 		
 	public String getGranite_file_path() {
@@ -96,7 +106,7 @@ public class ConfigReader {
 	InputStream input = null;
 	
 	try{
-		input = new FileInputStream("config.properties");
+		input = new FileInputStream("E:/Java Development/CAV1/trunk/config.properties");
 		property.load(input);
 		DB_DRIVER = property.getProperty("db_driver").trim();
 		DB_CONNECTION_LBS = property.getProperty("db_url_lbs").trim();
@@ -114,6 +124,8 @@ public class ConfigReader {
 		sub_category = property.getProperty("sub_category").trim();
 		image_reference = property.getProperty("image_reference").trim();
 		granite_file_path = property.getProperty("granite_file_path").trim();
+		cron_statement = property.getProperty("cron_statement").trim();
+		header_structure = property.getProperty("header_structure");
 	}
 	
 	catch(IOException ex){
@@ -145,5 +157,7 @@ public class ConfigReader {
 		System.out.println("3) "+conf.getDB_PASSWORD_LBS());
 		System.out.println("4) "+conf.getDB_USER_LBS());
 		System.out.println("4) "+conf.getWifi_indoor());
+		System.out.println("5) "+conf.getHeader_structure());
+		
 	}
 }

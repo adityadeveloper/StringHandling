@@ -13,9 +13,6 @@ import com.granite.model.GraniteVO;
 
 public class GraniteDBWriter {
 	private static final String DB_DRIVER;
-	private static final String DB_CONNECTION_LBS;
-	private static final String DB_USER_LBS;
-	private static final String DB_PASSWORD_LBS;
 	private static final String DB_CONNECTION_INTEGRATION;
 	private static final String DB_USER_INTEGRATION;
 	private static final String DB_PASSWORD_INTEGRATION;
@@ -23,9 +20,6 @@ public class GraniteDBWriter {
 	static{
 		ConfigReader conf = ConfigReader.getInstance();
 		DB_DRIVER = conf.getDB_DRIVER();
-		DB_CONNECTION_LBS = conf.getDB_CONNECTION_LBS();
-		DB_USER_LBS = conf.getDB_USER_LBS();
-		DB_PASSWORD_LBS = conf.getDB_PASSWORD_LBS();
 		DB_CONNECTION_INTEGRATION = conf.getDB_CONNECTION_INTEGRATION();
 		DB_USER_INTEGRATION = conf.getDB_USER_INTEGRATION();
 		DB_PASSWORD_INTEGRATION = conf.getDB_PASSWORD_INTEGRATION();

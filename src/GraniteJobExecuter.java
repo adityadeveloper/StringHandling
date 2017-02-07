@@ -1,9 +1,9 @@
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
-
 import org.quartz.Job;
-
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 import com.granite.filereader.GraniteDBWriter;
 import com.granite.filereader.GraniteFileReader;
 import com.granite.filereader.GraniteFileSearch;
@@ -14,7 +14,15 @@ import com.granite.validation.GraniteFinalDBWriter;
 
 public class GraniteJobExecuter implements Job{
 
-	public static void mainJob() {
+	public void execute(JobExecutionContext context) throws JobExecutionException {
+		GraniteJobExecuter.mainJob();
+	}
+	
+	public static void main(String args[]){
+		 GraniteJobExecuter.mainJob();
+	}
+	
+	public static void mainJob(){
 		
 		GraniteFileReader gr = null;
 		GraniteDBWriter db = null;
