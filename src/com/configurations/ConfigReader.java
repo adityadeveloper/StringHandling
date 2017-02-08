@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class ConfigReader {
 	
 	private String DB_DRIVER;
@@ -25,6 +27,8 @@ public class ConfigReader {
 	private String granite_file_path;
 	private String cron_statement;
 	private String header_structure;
+	
+	Logger logger = Logger.getLogger(ConfigReader.class);
 	
 	public String getHeader_structure() {
 		return header_structure;
@@ -106,7 +110,8 @@ public class ConfigReader {
 	InputStream input = null;
 	
 	try{
-		input = new FileInputStream("E:/Java Development/CAV1/trunk/config.properties");
+		
+		input = new FileInputStream("D:/CAV/trunk/config.properties");
 		property.load(input);
 		DB_DRIVER = property.getProperty("db_driver").trim();
 		DB_CONNECTION_LBS = property.getProperty("db_url_lbs").trim();
@@ -124,12 +129,13 @@ public class ConfigReader {
 		sub_category = property.getProperty("sub_category").trim();
 		image_reference = property.getProperty("image_reference").trim();
 		granite_file_path = property.getProperty("granite_file_path").trim();
-		cron_statement = property.getProperty("cron_statement").trim();
-		header_structure = property.getProperty("header_structure");
+		cron_statement = property.getProperty("cron_statement").replaceAll("[<>]", "").trim();
+		header_structure = property.getProperty("header_structure").trim();
 	}
 	
 	catch(IOException ex){
-		ex.printStackTrace();
+		//ex.printStackTrace();
+		//logger.error("Exception occured",ex);
 	}
 	
 	finally{
@@ -152,12 +158,12 @@ public class ConfigReader {
 	
 	public static void main(String args[]){
 		ConfigReader conf = new ConfigReader();
-		System.out.println("1) "+conf.getDB_CONNECTION_LBS());
+/*		System.out.println("1) "+conf.getDB_CONNECTION_LBS());
 		System.out.println("2) "+conf.getDB_DRIVER());
 		System.out.println("3) "+conf.getDB_PASSWORD_LBS());
 		System.out.println("4) "+conf.getDB_USER_LBS());
-		System.out.println("4) "+conf.getWifi_indoor());
-		System.out.println("5) "+conf.getHeader_structure());
+		System.out.println("4) "+conf.getWifi_indoor());*/
+		System.out.println("5) "+conf.getCron_statement());
 		
 	}
 }

@@ -1,0 +1,86 @@
+2017-02-08 13:11:41 DEBUG ConfigReader:115 - This is debug : log
+2017-02-08 13:11:41 INFO  ConfigReader:119 - This is info : log
+2017-02-08 13:11:41 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 13:11:41 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:11:41 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:13:04 DEBUG ConfigReader:115 - This is debug : log
+2017-02-08 13:13:04 INFO  ConfigReader:119 - This is info : log
+2017-02-08 13:13:04 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 13:13:04 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:13:04 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:13:24 DEBUG ConfigReader:115 - This is debug : log
+2017-02-08 13:13:24 INFO  ConfigReader:119 - This is info : log
+2017-02-08 13:13:24 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 13:13:24 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:13:24 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:14:27 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:14:27 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:16:44 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:16:44 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:16:49 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:16:49 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:16:58 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:16:58 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:16:58 ERROR ConfigReader:150 - Exception occured
+java.io.FileNotFoundException: E:\CAV\trunk\config.properties (The system cannot find the path specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at com.configurations.ConfigReader.<init>(ConfigReader.java:126)
+	at com.configurations.ConfigReader.main(ConfigReader.java:172)
+2017-02-08 13:23:38 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:23:38 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:23:58 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:23:58 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:24:35 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:24:35 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:24:46 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:24:46 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:25:11 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:25:11 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:27:29 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:27:29 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:27:53 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:27:53 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:30:49 [ERROR] ConfigReader:123 - This is error : log
+2017-02-08 13:30:49 [FATAL] ConfigReader:124 - This is fatal : log
+2017-02-08 13:31:09 ERROR ConfigReader:123 - This is error : log
+2017-02-08 13:31:09 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 13:34:04 ERROR ConfigReader - This is error : log
+2017-02-08 13:34:04 FATAL ConfigReader - This is fatal : log
+2017-02-08 13:37:33 ERROR ConfigReader - This is error : log
+2017-02-08 13:37:33 FATAL ConfigReader - This is fatal : log
+2017-02-08 14:56:45 ERROR ConfigReader - This is error : log
+2017-02-08 14:56:45 FATAL ConfigReader - This is fatal : log
+2017-02-08 14:57:01 ERROR ConfigReader - This is error : log
+2017-02-08 14:57:01 FATAL ConfigReader - This is fatal : log
+2017-02-08 14:57:49 ERROR ConfigReader - This is error : log
+2017-02-08 14:57:49 FATAL ConfigReader - This is fatal : log
+2017-02-08 14:58:23 ERROR ConfigReader - This is error : log
+2017-02-08 14:58:23 FATAL ConfigReader - This is fatal : log
+2017-02-08 14:59:01 ERROR ConfigReader - This is error : log
+2017-02-08 14:59:01 FATAL ConfigReader - This is fatal : log
+2017-02-08 15:00:07 ERROR ConfigReader - This is error : log
+2017-02-08 15:00:07 FATAL ConfigReader - This is fatal : log
+2017-02-08 15:01:11 INFO  ConfigReader - This is info : log
+2017-02-08 15:01:11 WARN  ConfigReader - This is warn : log
+2017-02-08 15:01:11 ERROR ConfigReader - This is error : log
+2017-02-08 15:01:11 FATAL ConfigReader - This is fatal : log
+2017-02-08 15:01:18 INFO  ConfigReader - This is info : log
+2017-02-08 15:01:18 WARN  ConfigReader - This is warn : log
+2017-02-08 15:01:18 ERROR ConfigReader - This is error : log
+2017-02-08 15:01:18 FATAL ConfigReader - This is fatal : log
+2017-02-08 15:01:18 INFO  GraniteFileReader - CSV file reading started
+2017-02-08 15:09:44 INFO  ConfigReader:119 - This is info : log
+2017-02-08 15:09:44 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 15:09:44 ERROR ConfigReader:123 - This is error : log
+2017-02-08 15:09:44 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 15:10:39 INFO  ConfigReader:119 - This is info : log
+2017-02-08 15:10:39 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 15:10:39 ERROR ConfigReader:123 - This is error : log
+2017-02-08 15:10:39 FATAL ConfigReader:124 - This is fatal : log
+2017-02-08 15:11:03 INFO  ConfigReader:119 - This is info : log
+2017-02-08 15:11:03 WARN  ConfigReader:122 - This is warn : log
+2017-02-08 15:11:03 ERROR ConfigReader:123 - This is error : log
+2017-02-08 15:11:03 FATAL ConfigReader:124 - This is fatal : log

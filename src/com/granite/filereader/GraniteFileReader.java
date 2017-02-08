@@ -2,16 +2,19 @@ package com.granite.filereader;
 
 import com.granite.model.GraniteVO;
 import com.opencsv.CSVReader;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.*;
+import org.apache.log4j.Logger;
+
 import com.configurations.ConfigReader;
 
 public class GraniteFileReader {
 	private List<GraniteVO> GraniteList;
 	private static final String HEADER_STRUCTURE;
+	
+	Logger logger = Logger.getLogger(GraniteFileReader.class);
 	
 	static{
 		HEADER_STRUCTURE = ConfigReader.getInstance().getHeader_structure();
@@ -24,6 +27,7 @@ public class GraniteFileReader {
         try {
 			long startTimeStamp = System.currentTimeMillis();
 			System.out.println("CSV file reading started at "+ new Timestamp(startTimeStamp));
+			logger.info("CSV file reading started");
             reader = new CSVReader(new FileReader(csvFileName));
             String[] firstLine = reader.readNext();
             if (headerCheck(firstLine)){
@@ -104,9 +108,9 @@ public class GraniteFileReader {
 	public static void main(String args[]){
 		GraniteFileReader gr = new GraniteFileReader();
 		GraniteDBWriter db = new GraniteDBWriter();
-		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161900.csv");
+		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161901.csv");
 		
-		db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
+		//db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
 
 		
 	}
