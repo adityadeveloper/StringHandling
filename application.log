@@ -1,0 +1,28 @@
+2017-02-09 22:12:54 ERROR ConfigReader:138 - Exception occured
+java.io.FileNotFoundException: D:\CAV\trunk\config.properties (The system cannot find the path specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at com.configurations.ConfigReader.<init>(ConfigReader.java:114)
+	at com.configurations.ConfigReader.main(ConfigReader.java:160)
+2017-02-09 22:54:58 INFO  ConfigReader:154 - Loading Configurations
+2017-02-09 22:54:58 INFO  GraniteFileSearch:135 - Searching for Granite Wi_Fi AP files in : E:/Java Development/CAV1/trunk
+2017-02-09 22:54:58 INFO  GraniteFileSearch:39 - No New File Present
+2017-02-09 22:57:21 INFO  ConfigReader:154 - Loading Configurations
+2017-02-09 22:57:21 INFO  GraniteFileSearch:135 - Searching for Granite Wi_Fi AP files in : E:/Java Development/CAV1/trunk
+2017-02-09 22:57:21 INFO  GraniteFileSearch:39 - No New File Present
+2017-02-09 22:58:25 INFO  ConfigReader:154 - Loading Configurations
+2017-02-09 22:58:25 INFO  GraniteFileSearch:135 - Searching for Granite Wi_Fi AP files in : E:/Java Development/CAV1/trunk
+2017-02-09 22:58:25 INFO  GraniteFileSearch:43 - New Granite File found : wifi_ap_301020161907.csv
+2017-02-09 22:58:25 INFO  GraniteFileSearch:44 - Phase - 1 started
+2017-02-09 22:58:25 INFO  GraniteFileReader:29 - CSV file reading started
+2017-02-09 22:58:25 INFO  GraniteFileReader:72 - CSV file reading completed 
+Total time taken : 58 ms
+
+2017-02-09 22:58:25 INFO  GraniteFileSearch:52 - Phase - 1 completed
+2017-02-09 22:58:25 INFO  GraniteFileSearch:54 - Phase - 2 started
+2017-02-09 22:58:25 INFO  GraniteFileSearch:58 - Phase - 3 started
+2017-02-09 22:58:26 INFO  GraniteFileSearch:65 - Phase - 3 completed
+2017-02-09 22:58:26 INFO  GraniteFileSearch:83 - Granite Data processing completed2017-02-09 22:58:26.383
+Total time taken : 1162 ms

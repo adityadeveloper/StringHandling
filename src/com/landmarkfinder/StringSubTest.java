@@ -23,7 +23,7 @@ public class StringSubTest {
 				example = example.replace(a, " ");
 				}
 			else {
-				example = example.replace(a, a.replace("(", " ").replace(")", ""));
+				example = example.replace(a, a.replaceAll("[()]", ""));
 			}
 		}
 		

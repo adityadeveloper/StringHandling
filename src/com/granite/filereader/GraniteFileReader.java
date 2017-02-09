@@ -26,7 +26,6 @@ public class GraniteFileReader {
         CSVReader reader = null;
         try {
 			long startTimeStamp = System.currentTimeMillis();
-			System.out.println("CSV file reading started at "+ new Timestamp(startTimeStamp));
 			logger.info("CSV file reading started");
             reader = new CSVReader(new FileReader(csvFileName));
             String[] firstLine = reader.readNext();
@@ -70,17 +69,17 @@ public class GraniteFileReader {
 		    			GraniteList.add(graniteVO);
 	            }
 	            long endTimeStamp = System.currentTimeMillis();
-				System.out.println("CSV file reading completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
+				logger.info("CSV file reading completed.   Total time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
 	            return GraniteList;
 	            
 	        } 
             else {
-            	System.out.println("Granite file is not in not in proper format");
+            	logger.info("Granite file is not in not in proper format");
             	return GraniteList;
             }
         }
         catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Exception Occured !!!", e);
             return GraniteList;
         }
         finally{
@@ -88,7 +87,7 @@ public class GraniteFileReader {
 	        		reader.close();
 	        	}
 	        	catch(IOException e){
-	        		e.printStackTrace();
+	        		logger.error("Exception Occured !!!", e);
 	        	}
         }
     }
@@ -111,7 +110,5 @@ public class GraniteFileReader {
 		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161901.csv");
 		
 		//db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
-
-		
 	}
 }

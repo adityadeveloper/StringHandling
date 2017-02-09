@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 import com.configurations.ConfigReader;
 import com.granite.model.GraniteFileVO;
 
@@ -24,6 +26,8 @@ public class GraniteFileSearch{
 	private static final String DB_CONNECTION_INTEGRATION;
 	private static final String DB_USER_INTEGRATION;
 	private static final String DB_PASSWORD_INTEGRATION;
+	
+	static Logger logger = Logger.getLogger(GraniteFileSearch.class);
 	
 	static{
 		ConfigReader config = ConfigReader.getInstance();
@@ -127,7 +131,8 @@ public class GraniteFileSearch{
 	public String graniteFilePicker(){
 		String fileName = null;
 		List<String> dbFileList = GraniteFileSearch.listOfDBFiles();
-		System.out.println("Searching for Granite Wi_Fi AP files in : "+FILE_PATH);
+		
+		logger.info("Searching for Granite Wi_Fi AP files in : "+FILE_PATH);
 		List<GraniteFileVO> dirFileList = GraniteFileSearch.listofFilesInFolder();
 		for(GraniteFileVO oneFile : dirFileList){
 			if (dbFileList.contains(oneFile.getFileName())){

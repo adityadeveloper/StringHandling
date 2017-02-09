@@ -28,7 +28,7 @@ public class ConfigReader {
 	private String cron_statement;
 	private String header_structure;
 	
-	Logger logger = Logger.getLogger(ConfigReader.class);
+	static Logger logger = Logger.getLogger(ConfigReader.class);
 	
 	public String getHeader_structure() {
 		return header_structure;
@@ -111,7 +111,7 @@ public class ConfigReader {
 	
 	try{
 		
-		input = new FileInputStream("D:/CAV/trunk/config.properties");
+		input = new FileInputStream("E:/Java Development/CAV1/trunk/config.properties");
 		property.load(input);
 		DB_DRIVER = property.getProperty("db_driver").trim();
 		DB_CONNECTION_LBS = property.getProperty("db_url_lbs").trim();
@@ -135,7 +135,7 @@ public class ConfigReader {
 	
 	catch(IOException ex){
 		//ex.printStackTrace();
-		//logger.error("Exception occured",ex);
+		logger.error("Exception occured",ex);
 	}
 	
 	finally{
@@ -151,6 +151,7 @@ public class ConfigReader {
 	
 	public static ConfigReader getInstance(){
 		if (config == null){
+			logger.info("Loading Configurations");
 			config = new ConfigReader();
 		}
 		return config;
