@@ -4,7 +4,6 @@ import com.granite.model.GraniteVO;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.*;
 import org.apache.log4j.Logger;
 
@@ -78,16 +77,16 @@ public class GraniteFileReader {
             	return GraniteList;
             }
         }
-        catch (IOException e) {
-            logger.error("Exception Occured !!!", e);
+        catch (IOException iex) {
+            logger.error("Exception Occured !!!", iex);
             return GraniteList;
         }
         finally{
         		try{
 	        		reader.close();
 	        	}
-	        	catch(IOException e){
-	        		logger.error("Exception Occured !!!", e);
+	        	catch(IOException iex){
+	        		logger.error("Exception Occured !!!", iex);
 	        	}
         }
     }
@@ -105,9 +104,9 @@ public class GraniteFileReader {
 	}
 	
 	public static void main(String args[]){
-		GraniteFileReader gr = new GraniteFileReader();
+		/*GraniteFileReader gr = new GraniteFileReader();
 		GraniteDBWriter db = new GraniteDBWriter();
-		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161901.csv");
+		List<GraniteVO> test = gr.createGraniteList("wifi_ap_301020161901.csv");*/
 		
 		//db.insertIntoGraniteTable(test, "wifi_ap_301020161900.csv");
 	}

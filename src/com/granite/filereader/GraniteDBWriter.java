@@ -1,6 +1,5 @@
 package com.granite.filereader;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -8,18 +7,21 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import com.configurations.ConfigReader;
+import com.configurations.ConnectionManager;
 import com.granite.model.GraniteVO;
 
 public class GraniteDBWriter {
-	private static final String DB_DRIVER;
 	private static final String DB_CONNECTION_INTEGRATION;
 	private static final String DB_USER_INTEGRATION;
 	private static final String DB_PASSWORD_INTEGRATION;
 	
+	Logger logger = Logger.getLogger(GraniteDBWriter.class);
+	
 	static{
 		ConfigReader conf = ConfigReader.getInstance();
-		DB_DRIVER = conf.getDB_DRIVER();
 		DB_CONNECTION_INTEGRATION = conf.getDB_CONNECTION_INTEGRATION();
 		DB_USER_INTEGRATION = conf.getDB_USER_INTEGRATION();
 		DB_PASSWORD_INTEGRATION = conf.getDB_PASSWORD_INTEGRATION();
@@ -32,7 +34,8 @@ public class GraniteDBWriter {
 		Statement stmt = null;
 		
 		try {
-			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			logger.info("Updating integration file read logger");
+			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			String query = "INSERT INTO integration_file_read_logger"
 					+ "(file_name, type, timestamp, is_success, comment) VALUES "
 					+"(?,?,?,?,?)";
@@ -49,7 +52,7 @@ public class GraniteDBWriter {
 		} 
 		
 		catch (SQLException /*| InterruptedException*/ e) {
-			e.printStackTrace();
+			logger.error("Exception occurred !!!", e);
 		} 
 		
 		finally {
@@ -62,7 +65,7 @@ public class GraniteDBWriter {
 				}
 			}
 			catch(SQLException sqx){
-				sqx.printStackTrace();
+				logger.error("Exception Occured !!!", sqx);
 			}
 		}
 		
@@ -73,7 +76,8 @@ public class GraniteDBWriter {
 				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";		
 	
 		try {
-			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			logger.info("Truncating Granite table");
+			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 
 			stmt.executeUpdate("TRUNCATE granite");
@@ -81,8 +85,8 @@ public class GraniteDBWriter {
 			preparedStatement = dbConnection.prepareStatement(insertTableSQL);
 			
 			long startTimeStamp = System.currentTimeMillis();
-			System.out.println("Data insertion started at "+ new Timestamp(startTimeStamp));
-			
+			logger.info("Started inserting data in Granite table");
+						
 			for (GraniteVO oneGraniteVO: graniteVO){
 			
 				preparedStatement.setString(1,oneGraniteVO.getEquipment_status());
@@ -126,11 +130,11 @@ public class GraniteDBWriter {
 			//System.out.println("before commit");
 			//Thread.sleep(15000);
 			long endTimeStamp = System.currentTimeMillis();
-			System.out.println("Data insertion completed at "+ new Timestamp(endTimeStamp) + "\nTotal time taken : "+(endTimeStamp - startTimeStamp) + " ms\n");
+			logger.info("Data insertion completed in Granite table.   Total time taken : "+(endTimeStamp - startTimeStamp)+" ms");
 		} 
 		
-		catch (SQLException /*| InterruptedException*/ e) {
-			e.printStackTrace();
+		catch (SQLException /*| InterruptedException*/ sqx) {
+			logger.error("Exception occurred !!!", sqx);
 		} 
 		
 		finally {
@@ -143,27 +147,9 @@ public class GraniteDBWriter {
 				}
 			}
 			catch(SQLException sqx){
-				sqx.printStackTrace();
+				logger.error("Exception occurred !!!", sqx);
 			}
 		}
 		
-	}
-
-	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
-		Connection dbConnection = null;
-		try {
-			Class.forName(DB_DRIVER);
-		} 
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
-			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
-			return dbConnection;
-		} 
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return dbConnection;
 	}
 }

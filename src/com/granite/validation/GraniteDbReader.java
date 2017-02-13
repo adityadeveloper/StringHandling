@@ -1,18 +1,18 @@
 package com.granite.validation;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.*;
 
+import org.apache.log4j.Logger;
+
 import com.configurations.ConfigReader;
+import com.configurations.ConnectionManager;
 import com.granite.model.GraniteVO;
 
 public class GraniteDBReader{
-	private static final String DB_DRIVER;
 	private static final String DB_CONNECTION_INTEGRATION;
 	private static final String DB_USER_INTEGRATION;
 	private static final String DB_PASSWORD_INTEGRATION;
@@ -20,9 +20,10 @@ public class GraniteDBReader{
 	private static final String[] EQUIPMENT_STATUS;
 	private List<GraniteVO> GraniteVOFromDB;
 	
+	static Logger logger = Logger.getLogger(GraniteDBReader.class);
+	
 	static{
 		ConfigReader conf = ConfigReader.getInstance();
-		DB_DRIVER = conf.getDB_DRIVER();
 		DB_CONNECTION_INTEGRATION = conf.getDB_CONNECTION_INTEGRATION();
 		DB_USER_INTEGRATION = conf.getDB_USER_INTEGRATION();
 		DB_PASSWORD_INTEGRATION = conf.getDB_PASSWORD_INTEGRATION();
@@ -39,10 +40,10 @@ public class GraniteDBReader{
 		String graniteSelectQuery = selectQueryBuilder();
 	
 		try{
-			dbConnection = getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 			long startTime = System.currentTimeMillis();
-			System.out.println("Granite DB read started at "+new Timestamp(startTime));
+			logger.info("Started reading data from Granite table");
 			ResultSet rs = stmt.executeQuery(graniteSelectQuery);
 			
 			while (rs.next()){
@@ -75,12 +76,12 @@ public class GraniteDBReader{
 				GraniteVOFromDB.add(oneGraniteDBRow);
 			}
 			long endTime = System.currentTimeMillis();
-			System.out.println("Granite DB read completed at " + new Timestamp(endTime)+ "\nTotal time taken : " + (endTime - startTime) + " ms"+"\nNumber of records read : "+GraniteVOFromDB.size());
+			logger.info("Reading from Granite DB completed.  Total time taken : " + (endTime - startTime) + " ms"+"\nNumber of records read : "+GraniteVOFromDB.size());
 			return GraniteVOFromDB;
 		}
 		
 		catch (SQLException e) {
-			System.out.println(e.getMessage());
+			logger.error("Exception occurred !!!", e);
 			return GraniteVOFromDB;
 		} 
 		
@@ -100,26 +101,7 @@ public class GraniteDBReader{
 	}
 	
 	
-	private static Connection getDBConnection(String dbUrl, String dbUserName, String dbPassword) {
-		Connection dbConnection = null;
-		try {
-			Class.forName(DB_DRIVER);
-		} 	
-		catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
-		}
-		try {
-			dbConnection = DriverManager.getConnection(dbUrl, dbUserName,dbPassword);                
-			return dbConnection;
-		} 
-		catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
-		return dbConnection;	
-	}
-	
-	
-	public static String selectQueryBuilder(){
+	private static String selectQueryBuilder(){
 		StringBuilder query = new StringBuilder("SELECT equipment_status, modified_date_time, full_address, country, pincode, equip_ref_name, floor, bssid, ap_group_name, equipment_id, rj_equipme_rjid, site_name, site_id, site_location, gis_lat, gis_long, r4g_state, circle, city_code, city_name, equipment_type, equipment_device_code, access_point_make from granite where equipment_status in (");
 		if(EQUIPMENT_STATUS.length==1)  query.append("'"+EQUIPMENT_STATUS[0]+"'"+")");
 		
@@ -144,18 +126,18 @@ public class GraniteDBReader{
 	}
 	
 	
-	public static void main (String args[]){
+/*	public static void main (String args[]){
 		GraniteDBReader reader = new GraniteDBReader();
 		//System.out.println(reader.selectQueryBuilder());
 		try{
 			List<GraniteVO> dbData =  reader.readFromGraniteTable();
-/*			for(GraniteVO oneGraniteVO : dbData){
+			for(GraniteVO oneGraniteVO : dbData){
 				System.out.println("\n\n" + oneGraniteVO);
-			}*/
+			}
 		}
 		catch (SQLException sq){
 			sq.printStackTrace();
 		}
 		
-	}
+	}*/
 }
