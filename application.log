@@ -26,3 +26,363 @@ Total time taken : 58 ms
 2017-02-09 22:58:26 INFO  GraniteFileSearch:65 - Phase - 3 completed
 2017-02-09 22:58:26 INFO  GraniteFileSearch:83 - Granite Data processing completed2017-02-09 22:58:26.383
 Total time taken : 1162 ms
+2017-02-15 22:30:49 DEBUG BasicClientConnectionManager:159 - Get connection for route {s}->https://maps.googleapis.com
+2017-02-15 22:30:49 DEBUG DefaultClientConnectionOperator:177 - Connecting to maps.googleapis.com:443
+2017-02-15 22:30:50 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2017-02-15 22:30:50 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2017-02-15 22:30:50 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2017-02-15 22:30:50 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2017-02-15 22:30:50 DEBUG DefaultHttpClient:715 - Attempt 1 to execute request
+2017-02-15 22:30:50 DEBUG DefaultClientConnection:269 - Sending request: GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:30:50 DEBUG wire:63 - >> "GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - >> "accept: application/json[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - >> "Host: maps.googleapis.com[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - >> "User-Agent: Apache-HttpClient/4.2.3 (java 1.5)[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - >> "[\r][\n]"
+2017-02-15 22:30:50 DEBUG headers:273 - >> GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:30:50 DEBUG headers:276 - >> accept: application/json
+2017-02-15 22:30:50 DEBUG headers:276 - >> Host: maps.googleapis.com
+2017-02-15 22:30:50 DEBUG headers:276 - >> Connection: Keep-Alive
+2017-02-15 22:30:50 DEBUG headers:276 - >> User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
+2017-02-15 22:30:50 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Date: Wed, 15 Feb 2017 17:00:26 GMT[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Expires: Thu, 16 Feb 2017 17:00:26 GMT[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Cache-Control: public, max-age=86400[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Server: mafe[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "X-XSS-Protection: 1; mode=block[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "X-Frame-Options: SAMEORIGIN[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Alt-Svc: quic=":443"; ma=2592000; v="35,34"[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Accept-Ranges: none[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Vary: Accept-Language,Accept-Encoding[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "Transfer-Encoding: chunked[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:30:50 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2017-02-15 22:30:50 DEBUG headers:257 - << HTTP/1.1 200 OK
+2017-02-15 22:30:50 DEBUG headers:260 - << Content-Type: application/json; charset=UTF-8
+2017-02-15 22:30:50 DEBUG headers:260 - << Date: Wed, 15 Feb 2017 17:00:26 GMT
+2017-02-15 22:30:50 DEBUG headers:260 - << Expires: Thu, 16 Feb 2017 17:00:26 GMT
+2017-02-15 22:30:50 DEBUG headers:260 - << Cache-Control: public, max-age=86400
+2017-02-15 22:30:50 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2017-02-15 22:30:50 DEBUG headers:260 - << Server: mafe
+2017-02-15 22:30:50 DEBUG headers:260 - << X-XSS-Protection: 1; mode=block
+2017-02-15 22:30:50 DEBUG headers:260 - << X-Frame-Options: SAMEORIGIN
+2017-02-15 22:30:50 DEBUG headers:260 - << Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+2017-02-15 22:30:50 DEBUG headers:260 - << Accept-Ranges: none
+2017-02-15 22:30:50 DEBUG headers:260 - << Vary: Accept-Language,Accept-Encoding
+2017-02-15 22:30:50 DEBUG headers:260 - << Transfer-Encoding: chunked
+2017-02-15 22:30:50 DEBUG DefaultHttpClient:545 - Connection can be kept alive indefinitely
+2017-02-15 22:30:50 DEBUG wire:63 - << "7c0[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "{[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "   "results" : [[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "      {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         "address_components" : [[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "1600",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "1600",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "street_number" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "Amphitheatre Parkway",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "Amphitheatre Pkwy",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "route" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "Mountain View",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "Mountain View",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "locality", "political" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "Santa Clara County",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "Santa Clara County",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "administrative_area_level_2", "political" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "California",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "CA",[\n]"
+2017-02-15 22:30:50 DEBUG wire:77 - << "               "types" : [ "administrative_area_level_1", "pol"
+2017-02-15 22:30:50 DEBUG wire:63 - << "itical" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "United States",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "US",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "country", "political" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "long_name" : "94043",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "short_name" : "94043",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "types" : [ "postal_code" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         ],[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         "formatted_address" : "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         "geometry" : {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            "location" : {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "lat" : 37.4219493,[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "lng" : -122.0847727[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            "location_type" : "ROOFTOP",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            "viewport" : {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "northeast" : {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "                  "lat" : 37.4232982802915,[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "                  "lng" : -122.0834237197085[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               "southwest" : {[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "                  "lat" : 37.42060031970851,[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "                  "lng" : -122.0861216802915[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "               }[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         },[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         "place_id" : "ChIJ2eUgeAK6j4ARbn5u_wAGqWA",[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "         "types" : [ "street_address" ][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "      }[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "   ],[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "   "status" : "OK"[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "}[\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "0[\r][\n]"
+2017-02-15 22:30:50 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:30:50 DEBUG BasicClientConnectionManager:201 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@32a068d1
+2017-02-15 22:30:50 DEBUG BasicClientConnectionManager:227 - Connection can be kept alive indefinitely
+2017-02-15 22:30:50 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:53411<->172.217.24.74:443 closed
+2017-02-15 22:32:16 DEBUG BasicClientConnectionManager:159 - Get connection for route {s}->https://maps.googleapis.com
+2017-02-15 22:32:16 DEBUG DefaultClientConnectionOperator:177 - Connecting to maps.googleapis.com:443
+2017-02-15 22:32:16 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2017-02-15 22:32:16 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2017-02-15 22:32:16 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2017-02-15 22:32:16 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2017-02-15 22:32:16 DEBUG DefaultHttpClient:715 - Attempt 1 to execute request
+2017-02-15 22:32:16 DEBUG DefaultClientConnection:269 - Sending request: GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:32:16 DEBUG wire:63 - >> "GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1[\r][\n]"
+2017-02-15 22:32:16 DEBUG wire:63 - >> "accept: application/json[\r][\n]"
+2017-02-15 22:32:16 DEBUG wire:63 - >> "Host: maps.googleapis.com[\r][\n]"
+2017-02-15 22:32:16 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2017-02-15 22:32:16 DEBUG wire:63 - >> "User-Agent: Apache-HttpClient/4.2.3 (java 1.5)[\r][\n]"
+2017-02-15 22:32:16 DEBUG wire:63 - >> "[\r][\n]"
+2017-02-15 22:32:16 DEBUG headers:273 - >> GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:32:16 DEBUG headers:276 - >> accept: application/json
+2017-02-15 22:32:16 DEBUG headers:276 - >> Host: maps.googleapis.com
+2017-02-15 22:32:16 DEBUG headers:276 - >> Connection: Keep-Alive
+2017-02-15 22:32:16 DEBUG headers:276 - >> User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
+2017-02-15 22:32:17 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Date: Wed, 15 Feb 2017 17:01:52 GMT[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Expires: Thu, 16 Feb 2017 17:01:52 GMT[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Cache-Control: public, max-age=86400[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Server: mafe[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "X-XSS-Protection: 1; mode=block[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "X-Frame-Options: SAMEORIGIN[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Alt-Svc: quic=":443"; ma=2592000; v="35,34"[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Accept-Ranges: none[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Vary: Accept-Language,Accept-Encoding[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "Transfer-Encoding: chunked[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:32:17 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2017-02-15 22:32:17 DEBUG headers:257 - << HTTP/1.1 200 OK
+2017-02-15 22:32:17 DEBUG headers:260 - << Content-Type: application/json; charset=UTF-8
+2017-02-15 22:32:17 DEBUG headers:260 - << Date: Wed, 15 Feb 2017 17:01:52 GMT
+2017-02-15 22:32:17 DEBUG headers:260 - << Expires: Thu, 16 Feb 2017 17:01:52 GMT
+2017-02-15 22:32:17 DEBUG headers:260 - << Cache-Control: public, max-age=86400
+2017-02-15 22:32:17 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2017-02-15 22:32:17 DEBUG headers:260 - << Server: mafe
+2017-02-15 22:32:17 DEBUG headers:260 - << X-XSS-Protection: 1; mode=block
+2017-02-15 22:32:17 DEBUG headers:260 - << X-Frame-Options: SAMEORIGIN
+2017-02-15 22:32:17 DEBUG headers:260 - << Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+2017-02-15 22:32:17 DEBUG headers:260 - << Accept-Ranges: none
+2017-02-15 22:32:17 DEBUG headers:260 - << Vary: Accept-Language,Accept-Encoding
+2017-02-15 22:32:17 DEBUG headers:260 - << Transfer-Encoding: chunked
+2017-02-15 22:32:17 DEBUG DefaultHttpClient:545 - Connection can be kept alive indefinitely
+2017-02-15 22:32:17 DEBUG wire:63 - << "7c0[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "{[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "   "results" : [[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "      {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         "address_components" : [[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "1600",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "1600",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "street_number" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "Amphitheatre Parkway",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "Amphitheatre Pkwy",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "route" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "Mountain View",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "Mountain View",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "locality", "political" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "Santa Clara County",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "Santa Clara County",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "administrative_area_level_2", "political" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "California",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "CA",[\n]"
+2017-02-15 22:32:17 DEBUG wire:77 - << "               "types" : [ "administrative_area_level_1", "pol"
+2017-02-15 22:32:17 DEBUG wire:63 - << "itical" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "United States",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "US",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "country", "political" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "long_name" : "94043",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "short_name" : "94043",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "types" : [ "postal_code" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         ],[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         "formatted_address" : "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         "geometry" : {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            "location" : {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "lat" : 37.4219493,[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "lng" : -122.0847727[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            "location_type" : "ROOFTOP",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            "viewport" : {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "northeast" : {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "                  "lat" : 37.4232982802915,[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "                  "lng" : -122.0834237197085[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               "southwest" : {[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "                  "lat" : 37.42060031970851,[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "                  "lng" : -122.0861216802915[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "               }[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         },[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         "place_id" : "ChIJ2eUgeAK6j4ARbn5u_wAGqWA",[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "         "types" : [ "street_address" ][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "      }[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "   ],[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "   "status" : "OK"[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "}[\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "0[\r][\n]"
+2017-02-15 22:32:17 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:32:17 DEBUG BasicClientConnectionManager:201 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@32a068d1
+2017-02-15 22:32:17 DEBUG BasicClientConnectionManager:227 - Connection can be kept alive indefinitely
+2017-02-15 22:32:17 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:53414<->172.217.24.74:443 closed
+2017-02-15 22:43:47 DEBUG BasicClientConnectionManager:159 - Get connection for route {s}->https://maps.googleapis.com
+2017-02-15 22:43:47 DEBUG DefaultClientConnectionOperator:177 - Connecting to maps.googleapis.com:443
+2017-02-15 22:43:48 DEBUG RequestAddCookies:132 - CookieSpec selected: best-match
+2017-02-15 22:43:48 DEBUG RequestAuthCache:78 - Auth cache not set in the context
+2017-02-15 22:43:48 DEBUG RequestTargetAuthentication:78 - Target auth state: UNCHALLENGED
+2017-02-15 22:43:48 DEBUG RequestProxyAuthentication:87 - Proxy auth state: UNCHALLENGED
+2017-02-15 22:43:48 DEBUG DefaultHttpClient:715 - Attempt 1 to execute request
+2017-02-15 22:43:48 DEBUG DefaultClientConnection:269 - Sending request: GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:43:48 DEBUG wire:63 - >> "GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - >> "accept: application/json[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - >> "Host: maps.googleapis.com[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - >> "Connection: Keep-Alive[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - >> "User-Agent: Apache-HttpClient/4.2.3 (java 1.5)[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - >> "[\r][\n]"
+2017-02-15 22:43:48 DEBUG headers:273 - >> GET /maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc HTTP/1.1
+2017-02-15 22:43:48 DEBUG headers:276 - >> accept: application/json
+2017-02-15 22:43:48 DEBUG headers:276 - >> Host: maps.googleapis.com
+2017-02-15 22:43:48 DEBUG headers:276 - >> Connection: Keep-Alive
+2017-02-15 22:43:48 DEBUG headers:276 - >> User-Agent: Apache-HttpClient/4.2.3 (java 1.5)
+2017-02-15 22:43:48 DEBUG wire:63 - << "HTTP/1.1 200 OK[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Content-Type: application/json; charset=UTF-8[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Date: Wed, 15 Feb 2017 17:13:23 GMT[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Expires: Thu, 16 Feb 2017 17:13:23 GMT[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Cache-Control: public, max-age=86400[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Access-Control-Allow-Origin: *[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Server: mafe[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "X-XSS-Protection: 1; mode=block[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "X-Frame-Options: SAMEORIGIN[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Alt-Svc: quic=":443"; ma=2592000; v="35,34"[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Accept-Ranges: none[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Vary: Accept-Language,Accept-Encoding[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "Transfer-Encoding: chunked[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:43:48 DEBUG DefaultClientConnection:254 - Receiving response: HTTP/1.1 200 OK
+2017-02-15 22:43:48 DEBUG headers:257 - << HTTP/1.1 200 OK
+2017-02-15 22:43:48 DEBUG headers:260 - << Content-Type: application/json; charset=UTF-8
+2017-02-15 22:43:48 DEBUG headers:260 - << Date: Wed, 15 Feb 2017 17:13:23 GMT
+2017-02-15 22:43:48 DEBUG headers:260 - << Expires: Thu, 16 Feb 2017 17:13:23 GMT
+2017-02-15 22:43:48 DEBUG headers:260 - << Cache-Control: public, max-age=86400
+2017-02-15 22:43:48 DEBUG headers:260 - << Access-Control-Allow-Origin: *
+2017-02-15 22:43:48 DEBUG headers:260 - << Server: mafe
+2017-02-15 22:43:48 DEBUG headers:260 - << X-XSS-Protection: 1; mode=block
+2017-02-15 22:43:48 DEBUG headers:260 - << X-Frame-Options: SAMEORIGIN
+2017-02-15 22:43:48 DEBUG headers:260 - << Alt-Svc: quic=":443"; ma=2592000; v="35,34"
+2017-02-15 22:43:48 DEBUG headers:260 - << Accept-Ranges: none
+2017-02-15 22:43:48 DEBUG headers:260 - << Vary: Accept-Language,Accept-Encoding
+2017-02-15 22:43:48 DEBUG headers:260 - << Transfer-Encoding: chunked
+2017-02-15 22:43:48 DEBUG DefaultHttpClient:545 - Connection can be kept alive indefinitely
+2017-02-15 22:43:48 DEBUG wire:63 - << "7c0[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "{[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "   "results" : [[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "      {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         "address_components" : [[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "1600",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "1600",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "street_number" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "Amphitheatre Parkway",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "Amphitheatre Pkwy",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "route" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "Mountain View",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "Mountain View",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "locality", "political" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "Santa Clara County",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "Santa Clara County",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "administrative_area_level_2", "political" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "California",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "CA",[\n]"
+2017-02-15 22:43:48 DEBUG wire:77 - << "               "types" : [ "administrative_area_level_1", "pol"
+2017-02-15 22:43:48 DEBUG wire:63 - << "itical" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "United States",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "US",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "country", "political" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "long_name" : "94043",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "short_name" : "94043",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "types" : [ "postal_code" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         ],[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         "formatted_address" : "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         "geometry" : {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            "location" : {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "lat" : 37.4219493,[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "lng" : -122.0847727[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            "location_type" : "ROOFTOP",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            "viewport" : {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "northeast" : {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "                  "lat" : 37.4232982802915,[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "                  "lng" : -122.0834237197085[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               "southwest" : {[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "                  "lat" : 37.42060031970851,[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "                  "lng" : -122.0861216802915[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "               }[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "            }[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         },[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         "place_id" : "ChIJ2eUgeAK6j4ARbn5u_wAGqWA",[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "         "types" : [ "street_address" ][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "      }[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "   ],[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "   "status" : "OK"[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "}[\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "0[\r][\n]"
+2017-02-15 22:43:48 DEBUG wire:63 - << "[\r][\n]"
+2017-02-15 22:43:48 DEBUG BasicClientConnectionManager:201 - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@32a068d1
+2017-02-15 22:43:48 DEBUG BasicClientConnectionManager:227 - Connection can be kept alive indefinitely
+2017-02-15 22:43:48 DEBUG DefaultClientConnection:169 - Connection 0.0.0.0:53553<->74.125.68.95:443 closed
