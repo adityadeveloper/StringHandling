@@ -27,6 +27,9 @@ public class ConfigReader {
 	private String granite_file_path;
 	private String cron_statement;
 	private String header_structure;
+	private String google_key;
+	private int http_connection_timeout;
+	private int http_socket_timeout;
 	
 	static Logger logger = Logger.getLogger(ConfigReader.class);
 	
@@ -34,8 +37,20 @@ public class ConfigReader {
 		return header_structure;
 	}
 
+	public int getHttp_connection_timeout() {
+		return http_connection_timeout;
+	}
+
+	public int getHttp_socket_timeout() {
+		return http_socket_timeout;
+	}
+
 	public String getCron_statement() {
 		return cron_statement;
+	}
+
+	public String getGoogle_key() {
+		return google_key;
 	}
 
 	private static ConfigReader config = null;
@@ -131,6 +146,9 @@ public class ConfigReader {
 		granite_file_path = property.getProperty("granite_file_path").trim();
 		cron_statement = property.getProperty("cron_statement").replaceAll("[<>]", "").trim();
 		header_structure = property.getProperty("header_structure").trim();
+		google_key = property.getProperty("google_key").trim();
+		http_connection_timeout = Integer.parseInt(property.getProperty("http_connection_timeout").trim());
+		http_socket_timeout = Integer.parseInt(property.getProperty("http_socket_timeout").trim());
 	}
 	
 	catch(IOException ex){
