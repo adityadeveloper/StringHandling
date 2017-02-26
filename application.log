@@ -753,3 +753,378 @@ java.net.SocketTimeoutException: Read timed out
 2017-02-19 23:11:52 INFO  WebClientTest:92 - formatted_address : Thane, Maharashtra, India
 2017-02-19 23:11:52 INFO  WebClientTest:99 - Latitude : 19.2183307
 2017-02-19 23:11:52 INFO  WebClientTest:100 - Longitude : 72.9780897
+2017-02-26 14:22:14 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:22:15 INFO  WebClientTest:61 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:22:16 INFO  WebClientTest:83 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 14:22:16 INFO  WebClientTest:86 - Status : OK
+2017-02-26 14:22:16 INFO  WebClientTest:92 - formatted_address : Thane, Maharashtra, India
+2017-02-26 14:22:16 INFO  WebClientTest:99 - Latitude : 19.2183307
+2017-02-26 14:22:16 INFO  WebClientTest:100 - Longitude : 72.9780897
+2017-02-26 14:25:11 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:25:11 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:25:12 INFO  GoogleGeocode:73 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 14:25:12 INFO  GoogleGeocode:76 - Status : OK
+2017-02-26 14:25:12 INFO  GoogleGeocode:82 - formatted_address : Thane, Maharashtra, India
+2017-02-26 14:25:12 INFO  GoogleGeocode:89 - Latitude : 19.2183307
+2017-02-26 14:25:12 INFO  GoogleGeocode:90 - Longitude : 72.9780897
+2017-02-26 14:38:51 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:38:51 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/xml?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:38:52 ERROR GoogleGeocode:102 - Exception occurred while parsing JSON
+Unexpected character (<) at position 0.
+	at org.json.simple.parser.Yylex.yylex(Yylex.java:610)
+	at org.json.simple.parser.JSONParser.nextToken(JSONParser.java:269)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:118)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:81)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:75)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:72)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:119)
+2017-02-26 14:39:13 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:39:14 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/xml?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:39:14 ERROR GoogleGeocode:102 - Exception occurred while parsing JSON
+Unexpected character (<) at position 0.
+	at org.json.simple.parser.Yylex.yylex(Yylex.java:610)
+	at org.json.simple.parser.JSONParser.nextToken(JSONParser.java:269)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:118)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:81)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:75)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:72)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:119)
+2017-02-26 14:39:24 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:39:24 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:39:25 INFO  GoogleGeocode:73 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 14:39:25 INFO  GoogleGeocode:76 - Status : OK
+2017-02-26 14:39:25 INFO  GoogleGeocode:82 - formatted_address : Thane, Maharashtra, India
+2017-02-26 14:39:25 INFO  GoogleGeocode:89 - Latitude : 19.2183307
+2017-02-26 14:39:25 INFO  GoogleGeocode:90 - Longitude : 72.9780897
+2017-02-26 14:55:54 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:55:55 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:55:55 INFO  GoogleGeocode:73 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 14:55:55 INFO  GoogleGeocode:76 - Status : OK
+2017-02-26 14:55:55 INFO  GoogleGeocode:82 - formatted_address : Thane, Maharashtra, India
+2017-02-26 14:55:55 INFO  GoogleGeocode:89 - Latitude : 19.2183307
+2017-02-26 14:55:55 INFO  GoogleGeocode:90 - Longitude : 72.9780897
+2017-02-26 14:56:10 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:56:11 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/xml?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:56:11 ERROR GoogleGeocode:102 - Exception occurred while parsing JSON
+Unexpected character (<) at position 0.
+	at org.json.simple.parser.Yylex.yylex(Yylex.java:610)
+	at org.json.simple.parser.JSONParser.nextToken(JSONParser.java:269)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:118)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:81)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:75)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:72)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:121)
+2017-02-26 14:56:11 INFO  GoogleGeocode:104 - test
+2017-02-26 14:57:39 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:57:40 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/xml?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 14:59:22 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 14:59:22 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/xml?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:00:28 ERROR GoogleGeocode:102 - Exception occurred while parsing JSON
+Unexpected character (<) at position 0.
+	at org.json.simple.parser.Yylex.yylex(Yylex.java:610)
+	at org.json.simple.parser.JSONParser.nextToken(JSONParser.java:269)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:118)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:81)
+	at org.json.simple.parser.JSONParser.parse(JSONParser.java:75)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:72)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:121)
+2017-02-26 15:00:35 INFO  GoogleGeocode:104 - test
+2017-02-26 15:01:37 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:01:37 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:01:37 INFO  GoogleGeocode:73 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 15:02:34 INFO  GoogleGeocode:76 - Status : OK
+2017-02-26 15:04:17 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:04:18 INFO  GoogleGeocode:51 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:04:18 INFO  GoogleGeocode:73 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 15:04:18 INFO  GoogleGeocode:76 - Status : OK
+2017-02-26 15:04:18 INFO  GoogleGeocode:82 - formatted_address : Thane, Maharashtra, India
+2017-02-26 15:04:18 INFO  GoogleGeocode:89 - Latitude : 19.2183307
+2017-02-26 15:04:18 INFO  GoogleGeocode:90 - Longitude : 72.9780897
+2017-02-26 15:29:41 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:29:42 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=Thane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:29:43 INFO  GoogleGeocode:74 - JSONResponse : {"results":[{"formatted_address":"Thane, Maharashtra, India","types":["locality","political"],"geometry":{"viewport":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.2954719}},"bounds":{"southwest":{"lng":72.926259,"lat":19.1313429},"northeast":{"lng":73.0766616,"lat":19.296441}},"location":{"lng":72.9780897,"lat":19.2183307},"location_type":"APPROXIMATE"},"address_components":[{"types":["locality","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_2","political"],"short_name":"Thane","long_name":"Thane"},{"types":["administrative_area_level_1","political"],"short_name":"MH","long_name":"Maharashtra"},{"types":["country","political"],"short_name":"IN","long_name":"India"}],"place_id":"ChIJWf12_vy45zsRgwLF94V9Ns8"}],"status":"OK"}
+2017-02-26 15:29:43 INFO  GoogleGeocode:77 - Status : OK
+2017-02-26 15:29:43 INFO  GoogleGeocode:83 - formatted_address : Thane, Maharashtra, India
+2017-02-26 15:29:43 INFO  GoogleGeocode:90 - Latitude : 19.2183307
+2017-02-26 15:29:43 INFO  GoogleGeocode:91 - Longitude : 72.9780897
+2017-02-26 15:31:28 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:31:28 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?address=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:31:29 INFO  GoogleGeocode:74 - JSONResponse : {"results":[],"status":"ZERO_RESULTS"}
+2017-02-26 15:31:29 INFO  GoogleGeocode:77 - Status : ZERO_RESULTS
+2017-02-26 15:31:29 INFO  GoogleGeocode:97 - No result found
+2017-02-26 15:31:52 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:31:53 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:36:10 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:36:10 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:36:21 ERROR GoogleGeocode:118 - Exception Occurred !!!
+java.net.UnknownHostException: maps.googleapis.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:111)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:54)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:36:37 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:36:37 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:36:48 ERROR GoogleGeocode:118 - Exception Occurred !!!
+java.net.UnknownHostException: maps.googleapis.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:111)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:54)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:38:45 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:38:45 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:38:45 ERROR GoogleGeocode:108 - Exception occured !!!
+java.lang.RuntimeException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:39:27 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:39:27 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:39:27 ERROR GoogleGeocode:108 - Exception occured !!!
+java.lang.RuntimeException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:133)
+2017-02-26 15:41:21 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:41:22 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:41:22 ERROR GoogleGeocode:108 - Exception occured !!!
+java.lang.RuntimeException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:49:32 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:49:33 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:49:33 ERROR GoogleGeocode:107 - Exception occured !!!
+com.webutility.InvalidStatusException
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 15:55:37 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:55:37 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:55:37 ERROR GoogleGeocode:107 - Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : statusCode
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:55:59 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:56:00 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:56:00 ERROR GoogleGeocode:107 - Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:132)
+2017-02-26 15:57:37 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 15:57:38 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 15:57:38 ERROR GoogleGeocode:106 - Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:00:58 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 16:00:59 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:00:59 ERROR GoogleGeocode:106 - Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:00:59 INFO  GoogleGeocode:132 - GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:01:40 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 16:01:41 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:01:41 ERROR GoogleGeocode:106 - com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+2017-02-26 16:01:41 INFO  GoogleGeocode:132 - GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:03:23 INFO  ConfigReader:172 - Loading Configurations
+2017-02-26 16:03:24 INFO  GoogleGeocode:52 - Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:03:24 ERROR GoogleGeocode:106 - Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:03:24 INFO  GoogleGeocode:132 - GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:06:59 INFO  ConfigReader:172    :: Loading Configurations
+2017-02-26 16:06:59 INFO  GoogleGeocode:52    :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:07:00 ERROR GoogleGeocode:106    :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:07:00 INFO  GoogleGeocode:132    :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:07:27 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:07:27 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:07:27 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:07:27 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:07:52 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:07:53 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:07:53 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:07:53 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:09:05 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:09:06 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:09:06 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:09:06 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:09:19 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:09:20 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:09:20 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:09:20 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:12:57 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:12:57 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:12:58 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:12:58 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:13:17 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:13:17 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:13:18 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:13:18 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:14:48 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:14:49 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:14:49 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:14:49 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:15:11 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:15:11 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:15:12 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:15:12 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:15:39 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:15:39 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:15:39 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:15:39 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:15:53 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:15:53 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:15:54 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:15:54 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:16:14 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:16:15 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:16:15 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:16:15 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:16:42 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:16:42 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:16:43 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:16:43 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:16:59 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:17:00 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:17:00 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:17:00 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:18:44 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:18:45 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:18:45 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:18:45 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:19:14 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:19:15 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:19:15 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:19:15 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:19:28 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:19:29 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:19:29 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:19:29 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:19:45 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:19:45 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:19:46 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:19:46 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:20:57 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:20:58 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:20:58 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:20:58 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:23:06 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:23:07 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:23:07 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:23:07 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:23:28 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:23:29 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:23:29 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:23:29 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:24:01 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:24:02 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:24:02 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:24:02 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:24:18 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:24:19 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:24:19 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:24:19 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]
+2017-02-26 16:24:38 INFO  ConfigReader:172      :: Loading Configurations
+2017-02-26 16:24:38 INFO  GoogleGeocode:52      :: Calling Google Geocode service : https://maps.googleapis.com/maps/api/geocode/json?adress=bhbhb%2Cbhvghv%2CThane&key=AIzaSyDyjlp97xwjxcy5bmiBvbJC1CflIYDtbZc
+2017-02-26 16:24:39 ERROR GoogleGeocode:106      :: Exception occured !!!
+com.webutility.InvalidStatusException: Failed : HTTP error code : 400
+	at com.webutility.GoogleGeocode.googleGeocode(GoogleGeocode.java:57)
+	at com.webutility.GoogleGeocode.main(GoogleGeocode.java:131)
+2017-02-26 16:24:39 INFO  GoogleGeocode:132      :: GCResponseVO [lat=0.0, lon=0.0, formattedAddress=null]

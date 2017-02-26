@@ -1,4 +1,4 @@
-package com.configurations;
+package com.utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,13 @@ import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
+import com.configurations.ConfigReader;
 
-public class ConnectionManager {
+
+public class DbConnection {
 	private static final String DB_DRIVER;
 	
-	static Logger logger = Logger.getLogger(ConnectionManager.class);
+	static Logger logger = Logger.getLogger(DbConnection.class);
 	
 	static {
 		ConfigReader config = ConfigReader.getInstance();

@@ -9,8 +9,8 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 import com.configurations.ConfigReader;
-import com.configurations.ConnectionManager;
 import com.granite.model.GraniteVO;
+import com.utility.DbConnection;
 
 public class GraniteDBReader{
 	private static final String DB_CONNECTION_INTEGRATION;
@@ -40,7 +40,7 @@ public class GraniteDBReader{
 		String graniteSelectQuery = selectQueryBuilder();
 	
 		try{
-			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			dbConnection = DbConnection.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 			long startTime = System.currentTimeMillis();
 			logger.info("Started reading data from Granite table");

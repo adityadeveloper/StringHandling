@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="E:/Java Development/CAV1/trunk/lib/org-apache-commons-logging.jar"/>
 	<classpathentry kind="lib" path="E:/Java Development/CAV1/trunk/lib/httpclient-4.5.2.jar"/>
 	<classpathentry kind="lib" path="E:/Java Development/CAV1/trunk/lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="E:/Java Development/CAV1/trunk/lib/gson-2.8.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

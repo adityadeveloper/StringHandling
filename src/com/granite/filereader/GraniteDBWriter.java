@@ -10,8 +10,8 @@ import java.util.*;
 import org.apache.log4j.Logger;
 
 import com.configurations.ConfigReader;
-import com.configurations.ConnectionManager;
 import com.granite.model.GraniteVO;
+import com.utility.DbConnection;
 
 public class GraniteDBWriter {
 	private static final String DB_CONNECTION_INTEGRATION;
@@ -35,7 +35,7 @@ public class GraniteDBWriter {
 		
 		try {
 			logger.info("Updating integration file read logger");
-			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			dbConnection = DbConnection.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			String query = "INSERT INTO integration_file_read_logger"
 					+ "(file_name, type, timestamp, is_success, comment) VALUES "
 					+"(?,?,?,?,?)";
@@ -77,7 +77,7 @@ public class GraniteDBWriter {
 	
 		try {
 			logger.info("Truncating Granite table");
-			dbConnection = ConnectionManager.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
+			dbConnection = DbConnection.getDBConnection(DB_CONNECTION_INTEGRATION,DB_USER_INTEGRATION,DB_PASSWORD_INTEGRATION);
 			stmt = dbConnection.createStatement();
 
 			stmt.executeUpdate("TRUNCATE granite");
