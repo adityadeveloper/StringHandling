@@ -14,7 +14,7 @@ public class GeocodeDAO {
 	{
 		Session session = seesionFactory.getCurrentSession();
 		session.beginTransaction();
-		session.save(responseVO);
+		session.saveOrUpdate(responseVO);
 		session.getTransaction().commit();
 	}
 	

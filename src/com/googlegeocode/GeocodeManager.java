@@ -117,6 +117,10 @@ public class GeocodeManager {
 				}
 				else{
 					logger.info("No result found");
+					responseVO.setFormattedAddress(null);
+					responseVO.setLat(0.0);
+					responseVO.setLon(0.0);
+					return responseVO;
 				}
 			}
 			catch(ParseException pex){
@@ -150,7 +154,7 @@ public class GeocodeManager {
 		ResponseVO responseVO = new ResponseVO();
 		
 		responseVO = googleGeocode(inputAddress);
-		if(responseVO.getLat() != 0.0){
+		if(isLatLonWithinIndia(responseVO.getLat(),responseVO.getLon())){
 			addressVO.setLat(responseVO.getLat());
 			addressVO.setLon(responseVO.getLon());
 			addressVO.setFormattedAddress(responseVO.getFormattedAddress());
@@ -164,7 +168,7 @@ public class GeocodeManager {
 			}
 			inputAddress2 = inputAddress2.substring(1);
 			responseVO = googleGeocode(inputAddress2);
-			if(responseVO.getLat() != 0.0){
+			if(isLatLonWithinIndia(responseVO.getLat(),responseVO.getLon())){
 				addressVO.setLat(responseVO.getLat());
 				addressVO.setLon(responseVO.getLon());
 				addressVO.setFormattedAddress(responseVO.getFormattedAddress());
@@ -178,6 +182,28 @@ public class GeocodeManager {
 		return addressVO;
 	}
 	
+	
+	
+    public Boolean isLatLonWithinIndia(Double lat, Double lon)
+    {
+    	Boolean isWithinIndia = false;
+    	try
+    	{
+    		if (lat >= 6.75981999 && lat <= 37.08520002 && lon >= 68.17082508 && lon <= 97.40479284)
+    		{
+    			isWithinIndia = true;
+    		}
+    		
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    	return isWithinIndia;
+    }
+    
+    
+    
 	public static void main(String args[]){
 /*		GeocodeResponseVO gc = Geocode.googleGeocode("Sukur Garden, Dhokali Naka,Thane");
 		GeocodeResponseVO gc2 = Geocode.googleGeocode("Dhokali Naka,Thane");

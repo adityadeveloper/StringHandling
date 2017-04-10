@@ -126,7 +126,7 @@ public class ConfigReader {
 	
 	try{
 		
-		input = new FileInputStream("E:/Java Development/Granite1/Granite/config.properties");
+		input = new FileInputStream("D:/JavaDevelopment/Granite/StringHandling/config.properties");
 		property.load(input);
 		DB_DRIVER = property.getProperty("db_driver").trim();
 		DB_CONNECTION_LBS = property.getProperty("db_url_lbs").trim();
